@@ -1,0 +1,1303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<link rel="icon" type="image/webp" href="img/logo.webp">
+<link rel="apple-touch-icon" href="img/logo.webp">
+<meta property="og:title" content="MJ Clinic · Equipamentos odontológicos">
+<meta property="og:description" content="Consultórios completos, sensor digital, raio-X, autoclave e profilaxia da linha Saevo, com orçamento em um só pedido.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<title>MJ Clinic</title>
+<meta name="description" content="MJ Clinic: equipamentos odontológicos Saevo. Consultórios completos, sensor digital, raio-X, autoclave e profilaxia, com orçamento em um só pedido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..800&display=swap">
+<style>
+/* Showroom escuro com um único foco de luz, como no Pente Fino: preto e osso, sem cor de acento.
+   A única cor da página é a da própria cadeira. O acento é contextual: osso no escuro, tinta no claro. */
+:root{
+  --preto:#070707;
+  --grafite:#121212;
+  --aco:#262626;
+  --cinza:#72716e;
+  --nevoa:#a9a8a4;
+  --porcelana:#eae8e5;
+  --porcelana-2:#dcd9d4;
+  --branco:#f2f1ee;
+  --tinta:#0b0b0b;
+  --texto-2:#4e4d4a;
+  --led:#fff6e6;
+  --logo:#f0901a; /* laranja do J no logo da MJ Clinic */
+  --acento:var(--branco);
+  --acento-2:#ffffff;
+  --sobre-acento:var(--tinta);
+  --linha-clara:rgba(11,11,11,.13);
+  --linha-escura:rgba(234,232,229,.12);
+
+  --f-display:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-corpo:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  --gut:clamp(16px,4vw,64px);
+  --raio:18px;
+  --mola:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+html{background:var(--preto);scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--preto);color:var(--porcelana);font-family:var(--f-corpo);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.claro{background:var(--porcelana);color:var(--tinta)}
+.claro,[data-tema="claro"],.gaveta,.nav[data-tinta="escura"]{--acento:var(--tinta);--acento-2:#2a2a29;--sobre-acento:var(--branco)}
+.verso{--acento:var(--branco);--acento-2:#ffffff;--sobre-acento:var(--tinta)}
+.rotulo{font:500 .72rem/1.2 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--cinza)}
+.titulo{font:300 clamp(2.3rem,6vw,5.6rem)/1 var(--f-display);letter-spacing:-.035em;margin:0;text-wrap:balance}
+.titulo b{font-weight:700}
+.titulo .p{display:inline-block}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6em;border:0;border-radius:999px;padding:.95em 1.5em;font:600 .95rem/1 var(--f-corpo);text-decoration:none;transition:transform .35s var(--mola),background .25s,color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-acao{background:var(--acento);color:var(--sobre-acento);box-shadow:0 12px 30px -16px rgba(0,0,0,.55)}
+.btn-acao:hover{background:var(--acento-2)}
+.btn-linha{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn-escuro{background:var(--tinta);color:var(--porcelana)}
+.btn .seta{font-family:var(--f-mono);font-weight:500}
+
+/* ---------- navegação ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px;transition:transform .5s var(--mola),color .3s;color:var(--porcelana)}
+.nav.oculta{transform:translateY(-110%)}
+.nav[data-tinta="escura"]{color:var(--tinta)}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 .9rem/1 var(--f-display);letter-spacing:.02em}
+.marca img{width:40px;height:40px;border-radius:50%}
+.nav-links{display:flex;gap:clamp(12px,2.2vw,32px);list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font:500 .74rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;opacity:.8}
+.nav-links a:hover{opacity:1}
+.nav-orc{padding:.7em 1.1em;font-size:.85rem}
+.nav-orc .cont{font-family:var(--f-mono);background:var(--tinta);color:var(--acento);border-radius:99px;padding:.15em .55em;font-size:.75rem}
+.nav-orc .cont[hidden]{display:none!important}
+html.js .nav.antes-intro{transform:translateY(-110%)}
+@media (max-width:860px){.nav-links{display:none}}
+
+/* barra de rolagem própria */
+.trilho{position:fixed;top:0;right:0;bottom:0;width:10px;z-index:45;pointer-events:none}
+.trilho i{position:absolute;right:3px;width:3px;border-radius:3px;background:var(--nevoa);opacity:.0;transition:opacity .4s}
+.trilho.mostra i{opacity:.85}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;z-index:1;height:100svh;min-height:560px;overflow:hidden;background:var(--hero-bg,var(--preto));isolation:isolate}
+.hero .feixe{position:absolute;left:50%;top:-12%;width:min(110vw,1100px);height:125%;transform:translateX(-50%);pointer-events:none;z-index:0;opacity:var(--feixe,1);
+  background:conic-gradient(from 180deg at 50% 0%,transparent 156deg,rgba(255,243,223,.05) 167deg,rgba(255,243,223,.12) 180deg,rgba(255,243,223,.05) 193deg,transparent 204deg);filter:blur(22px);mix-blend-mode:screen}
+.hero .poca{position:absolute;left:50%;bottom:6%;width:min(80vw,820px);height:18vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,243,223,.08),transparent);z-index:0;opacity:var(--feixe,1);pointer-events:none}
+.hero canvas#cena{position:absolute;inset:0;width:100%;height:100%;z-index:2;display:block}
+.cadeira-reserva{position:absolute;left:50%;top:54%;width:min(56vw,460px);transform:translate(-50%,-50%);z-index:2;display:none;border-radius:50%;-webkit-mask:radial-gradient(closest-side,#000 70%,transparent);mask:radial-gradient(closest-side,#000 70%,transparent);opacity:.9}
+html.sem-cadeira .cadeira-reserva{display:block}
+.palavra{position:absolute;margin:0;line-height:.9;white-space:nowrap;pointer-events:none;user-select:none}
+.palavra .w{display:inline-block;will-change:transform;color:var(--porcelana)}
+.palavra-mj{left:max(var(--gut),env(safe-area-inset-left,0px));top:clamp(88px,14svh,140px);z-index:1;font:800 clamp(4.4rem,12.5vw,12rem)/.86 var(--f-display);letter-spacing:-.05em}
+.palavra-mj .w{color:var(--branco)}
+.palavra-mj .j{color:var(--logo)}
+.palavra-clinic{right:max(var(--gut),env(safe-area-inset-right,0px));bottom:max(34px,calc(env(safe-area-inset-bottom,0px) + 26px));z-index:3;font:500 clamp(1.9rem,5vw,4.8rem)/1 var(--f-display);letter-spacing:.32em;margin-right:-.32em;text-transform:uppercase}
+.palavra-clinic .w{color:var(--branco)}
+.hero-ui{position:absolute;z-index:4;right:max(var(--gut),env(safe-area-inset-right,0px));top:clamp(110px,22svh,240px);width:min(380px,40vw);display:grid;gap:18px}
+.hero-ui .lede{font:300 clamp(1.5rem,2.4vw,2.2rem)/1.05 var(--f-display);letter-spacing:-.02em;margin:0;min-height:2.1em}
+.hero-ui .lede b{font-weight:800}
+.hero-ui p{margin:0;color:var(--nevoa);max-width:36ch}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:10px}
+.hero-rodape{position:absolute;z-index:4;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:max(22px,env(safe-area-inset-bottom,0px));font:500 .7rem/1.4 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--nevoa)}
+@media (max-width:760px){
+  .palavra-mj{font-size:25vw;top:calc(84px + env(safe-area-inset-top,0px))}
+  .palavra-clinic{font-size:7.6vw;bottom:max(28px,calc(env(safe-area-inset-bottom,0px) + 20px))}
+  .hero-ui{left:max(var(--gut),env(safe-area-inset-left,0px));right:max(var(--gut),env(safe-area-inset-right,0px));top:auto;bottom:calc(13vw + 44px);width:auto;gap:12px}
+  .hero-ui p:not(.lede){display:none}
+  .hero-ui .lede{font-size:1.45rem}
+  .hero-rodape{display:none}
+}
+
+/* abertura */
+.abertura{position:absolute;inset:0;z-index:6;display:none;pointer-events:none}
+html.js .abertura{display:block}
+html.intro-pendente .palavra,html.intro-pendente .hero-ui{opacity:0}
+.abertura .canto{position:absolute;font:500 .7rem/1.3 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--nevoa)}
+.abertura .c1{left:max(var(--gut),env(safe-area-inset-left,0px));top:calc(22px + env(safe-area-inset-top,0px))}
+.abertura .c2{right:max(var(--gut),env(safe-area-inset-right,0px));top:calc(16px + env(safe-area-inset-top,0px));pointer-events:auto;background:none;border:0;padding:8px 0;color:var(--porcelana);font:inherit;letter-spacing:.07em;text-transform:uppercase}
+.abertura .c3{left:max(var(--gut),env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.abertura .c4{right:max(var(--gut),env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));text-align:right}
+.abertura .c4 b{display:block;font:500 clamp(1.05rem,2vw,1.5rem)/1 var(--f-mono);letter-spacing:0;color:var(--branco);font-variant-numeric:tabular-nums}
+.refletor{position:absolute;left:50%;top:30%;width:min(34vw,200px);transform:translate(-50%,-50%)}
+.refletor .led-luz{opacity:0}
+.refletor .halo{opacity:0}
+
+/* ---------- CATÁLOGO ---------- */
+.catalogo{position:relative;z-index:5;margin-top:-32vh;padding-top:calc(32vh + clamp(48px,8vw,110px));padding-bottom:clamp(70px,10vw,140px);background:linear-gradient(to bottom,rgba(234,232,229,0) 0,var(--porcelana) 32vh)}
+.cab{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.cab p{margin:0;color:var(--texto-2);max-width:46ch}
+.cab .rotulo{grid-column:1/-1}
+@media (max-width:760px){.cab{grid-template-columns:1fr}}
+.lista{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--linha-clara)}
+.linha{display:grid;grid-template-columns:minmax(0,7rem) 104px minmax(0,1.5fr) minmax(0,1fr) auto;gap:12px 28px;align-items:center;padding:18px 0;border-top:1px solid var(--linha-clara);transition:opacity .35s}
+.lista.focando .linha:not(.ativa){opacity:.32}
+.linha .cod{font:600 clamp(1.3rem,2.4vw,2.1rem)/1 var(--f-mono);letter-spacing:-.02em;color:var(--tinta)}
+.linha.ativa .cod{color:var(--acento)}
+.linha h3{margin:0 0 4px;font:600 clamp(1.05rem,1.5vw,1.3rem)/1.2 var(--f-display);letter-spacing:-.01em}
+.linha .desc{margin:0;color:var(--texto-2);font-size:.95rem;max-width:52ch}
+.linha .ficha{display:flex;flex-wrap:wrap;gap:6px}
+.linha .ficha span{font:500 .72rem/1 var(--f-mono);letter-spacing:.04em;padding:.5em .7em;border-radius:99px;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);white-space:nowrap}
+.linha .btn{padding:.75em 1.1em;font-size:.85rem}
+.linha-foto{display:block;width:104px;aspect-ratio:1;border-radius:16px;background:var(--branco);overflow:hidden;box-shadow:inset 0 0 0 1px var(--linha-clara)}
+.linha-foto img{width:100%;height:100%;object-fit:contain;padding:8px;mix-blend-mode:multiply;transition:transform .5s var(--mola)}
+.linha.ativa .linha-foto img{transform:scale(1.06)}
+@media (max-width:900px){
+  .linha{grid-template-columns:minmax(0,1fr) auto;padding:20px 0}
+  .linha .cod{grid-column:1/-1}
+  .linha .txt{grid-column:1/-1}
+  .linha-foto{grid-column:1/-1;width:min(240px,70%);aspect-ratio:4/3}
+}
+.zap{position:fixed;z-index:45;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:max(16px,calc(env(safe-area-inset-bottom,0px) + 16px));display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;background:var(--tinta);color:var(--branco);font:600 .92rem/1 var(--f-corpo);text-decoration:none;box-shadow:0 16px 36px -16px rgba(0,0,0,.7),inset 0 0 0 1px rgba(242,241,238,.16);transition:transform .35s var(--mola),opacity .5s}
+.zap:hover{transform:translateY(-2px)}
+.zap svg{width:24px;height:24px;color:#25d366;flex:none}
+html.js .zap{opacity:0;transform:translateY(14px);pointer-events:none}
+html.js.zap-on .zap{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:620px){.zap span{display:none}.zap{padding:13px}}
+.dado .zap-link{justify-self:start;margin-top:4px}
+
+/* ---------- MANIFESTO ---------- */
+.manifesto{position:relative;z-index:6;height:100svh;min-height:560px;overflow:hidden;background:radial-gradient(60% 50% at 50% 46%,var(--grafite),var(--preto) 70%);display:grid;place-items:center}
+.frase{position:relative;z-index:2;text-align:center;margin:0;font:300 clamp(2rem,6.4vw,6rem)/.98 var(--f-display);letter-spacing:-.03em;max-width:13ch;text-wrap:balance;pointer-events:none}
+.frase b{font-weight:800;color:var(--branco)}
+.manifesto .rotulo{position:absolute;z-index:4;top:calc(26px + env(safe-area-inset-top,0px));left:max(var(--gut),env(safe-area-inset-left,0px))}
+.pilula{position:absolute;z-index:4;left:50%;bottom:max(32px,calc(env(safe-area-inset-bottom,0px) + 20px));transform:translateX(-50%);display:flex;align-items:center;gap:14px;padding:10px 18px 10px 10px;border-radius:999px;background:rgba(20,24,27,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--linha-escura);width:max-content;max-width:calc(100% - 32px)}
+.pilula b{font:600 .95rem/1 var(--f-mono);color:var(--sobre-acento);background:var(--acento);border-radius:99px;padding:.6em .9em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pilula span{font-size:.9rem;color:var(--porcelana)}
+.pilula .pts{display:flex;gap:5px;margin-left:4px}
+.pilula .pts i{width:6px;height:6px;border-radius:50%;background:var(--aco);transition:background .3s}
+.pilula .pts i.on{background:var(--acento)}
+
+/* ---------- GALERIA ---------- */
+.galeria{position:relative;z-index:6;padding-block:clamp(80px,10vw,150px)}
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filtros button{border:0;border-radius:99px;padding:.65em 1.1em;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);font:500 .78rem/1 var(--f-mono);letter-spacing:.06em;transition:background .25s,color .25s}
+.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--porcelana);box-shadow:none}
+.cartas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,22px)}
+@media (max-width:1100px){.cartas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.cartas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cartas{grid-template-columns:1fr}}
+.carta{perspective:1200px;aspect-ratio:4/5;max-width:100%}
+.carta.larga{grid-column:span 2;aspect-ratio:auto;align-self:stretch}
+@media (min-width:901px) and (max-width:1100px){.carta.larga{grid-column:span 3;aspect-ratio:12/5;align-self:auto}}
+@media (min-width:521px) and (max-width:900px){.carta.larga{aspect-ratio:8/5;align-self:auto}}
+@media (max-width:520px){.carta.larga{grid-column:auto;aspect-ratio:4/5;align-self:auto}}
+.carta[hidden]{display:none!important}
+.carta-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s var(--mola)}
+.carta:hover .carta-in,.carta.virada .carta-in,.carta:focus-within .carta-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:var(--raio);overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column}
+.frente{background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara)}
+.frente .foto{flex:1;min-height:0;position:relative}
+.frente .foto img{position:absolute;inset:22px;width:calc(100% - 44px);height:calc(100% - 44px);object-fit:contain;mix-blend-mode:multiply}
+.frente .foto.cheia{padding:0}
+.frente .foto.cheia img{object-fit:cover;mix-blend-mode:normal}
+.frente .leg{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 18px;border-top:1px solid var(--linha-clara)}
+.frente .leg b{font:600 1rem/1.2 var(--f-display)}
+.frente .leg span{font:500 .7rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--cinza)}
+.verso{background:var(--tinta);color:var(--porcelana);transform:rotateY(180deg);padding:24px;gap:14px}
+.verso h3{margin:0;font:700 1.15rem/1.15 var(--f-display)}
+.verso ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:.92rem;color:var(--porcelana)}
+.verso li{padding-left:16px;position:relative}
+.verso li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1px;background:var(--acento)}
+.verso .obs{font:500 .72rem/1.4 var(--f-mono);color:var(--nevoa);letter-spacing:.04em}
+.verso .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- PROCESSO ---------- */
+.processo{position:relative;z-index:6;background:var(--preto);min-height:100svh;padding-block:clamp(90px,10vw,140px) clamp(60px,8vw,100px);display:flex;flex-direction:column;justify-content:center;gap:clamp(36px,5vw,60px)}
+.paineis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,22px)}
+@media (max-width:860px){.paineis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.painel{position:relative;border:0;text-align:left;background:var(--grafite);border-radius:22px 22px 14px 14px;padding:86px 20px 22px;min-height:clamp(260px,34vw,380px);display:flex;flex-direction:column;gap:10px;color:var(--nevoa);box-shadow:inset 0 0 0 1px var(--linha-escura);transition:background .5s,color .5s,box-shadow .5s;overflow:hidden}
+.painel .fio{position:absolute;left:50%;top:0;width:1px;height:26px;background:var(--aco)}
+.painel .cupula{position:absolute;left:50%;top:26px;width:78px;height:30px;transform:translateX(-50%);border-radius:40px 40px 6px 6px;background:var(--aco);transition:background .5s}
+.painel .luz{position:absolute;left:50%;top:50px;width:150%;height:120%;transform:translateX(-50%);background:radial-gradient(50% 45% at 50% 0%,rgba(255,243,223,.34),rgba(255,243,223,.06) 60%,transparent 75%);opacity:0;transition:opacity .6s;pointer-events:none}
+.painel .num{font:600 .8rem/1 var(--f-mono);letter-spacing:.14em;color:var(--cinza);position:relative}
+.painel h3{margin:0;font:700 clamp(1.15rem,1.7vw,1.5rem)/1.1 var(--f-display);color:var(--porcelana);position:relative}
+.painel p{margin:0;font-size:.95rem;position:relative}
+.painel svg{width:44px;height:44px;margin-top:auto;position:relative;stroke:currentColor;fill:none;stroke-width:1.4}
+.painel.ativo{background:#1c1c1b;color:var(--porcelana);box-shadow:inset 0 0 0 1px rgba(255,243,223,.18)}
+.painel.ativo .luz{opacity:1}
+.painel.ativo .cupula{background:var(--led);box-shadow:0 8px 30px rgba(255,243,223,.45)}
+.painel.ativo .num{color:var(--acento)}
+
+/* ---------- BANCADA ---------- */
+.bancada{position:relative;z-index:6;padding-block:clamp(80px,10vw,140px);background:var(--porcelana-2);color:var(--tinta)}
+.pedestais{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,28px);margin-top:clamp(36px,5vw,60px)}
+@media (max-width:900px){.pedestais{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.peca{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.peca .foco{position:relative;width:100%;aspect-ratio:1;display:grid;place-items:end center}
+.peca .foco::before{content:"";position:absolute;inset:-10% 5% 10%;background:radial-gradient(45% 55% at 50% 40%,rgba(255,255,255,.95),rgba(255,255,255,0));pointer-events:none}
+.peca .foco img{position:relative;width:78%;height:72%;object-fit:contain;mix-blend-mode:multiply;margin-bottom:12%;transition:transform .6s var(--mola)}
+.peca .foco img.foto-sala{mix-blend-mode:normal;border-radius:14px;object-fit:cover;width:70%;height:66%}
+.peca:hover .foco img{transform:translateY(-6px)}
+.peca .base{position:absolute;bottom:0;left:16%;right:16%;height:16%;border-radius:50%/40%;background:linear-gradient(180deg,#f4f3f1,#c9c6c1);box-shadow:0 14px 26px -16px rgba(11,11,11,.5)}
+.peca h3{margin:0;font:700 1.02rem/1.2 var(--f-display)}
+.peca p{margin:0;font-size:.88rem;color:var(--texto-2);max-width:24ch}
+.peca .btn{padding:.7em 1.05em;font-size:.84rem}
+.peca .btn[aria-pressed="true"]{background:var(--tinta);color:var(--porcelana);box-shadow:none}
+.bancada .rodape-bancada{display:flex;justify-content:center;margin-top:clamp(30px,4vw,50px)}
+
+/* ---------- DÚVIDAS ---------- */
+.duvidas{position:relative;z-index:6;background:var(--preto);padding-block:clamp(90px,10vw,150px) 0}
+.duvidas .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:40px clamp(30px,6vw,90px);align-items:start}
+@media (max-width:900px){.duvidas .grade{grid-template-columns:1fr}}
+.titulo .pal{display:inline-block;transition:filter .9s var(--mola),opacity .9s var(--mola),transform .9s var(--mola);transition-delay:calc(var(--i,0)*70ms)}
+.desfoca .pal{filter:blur(10px);opacity:.15;transform:translateY(12px)}
+.acordeao{border-top:1px solid var(--linha-escura)}
+.pergunta{border-bottom:1px solid var(--linha-escura)}
+.pergunta button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:0;padding:22px 0;text-align:left;font:600 clamp(1rem,1.4vw,1.15rem)/1.3 var(--f-corpo);color:var(--porcelana)}
+.pergunta button i{flex:none;width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--linha-escura);position:relative;transition:transform .5s var(--mola),background .3s}
+.pergunta button i::before,.pergunta button i::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.pergunta button i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.pergunta button[aria-expanded="true"] i{transform:rotate(45deg);background:var(--acento);color:var(--sobre-acento)}
+.resposta{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--mola)}
+.resposta>div{overflow:hidden}
+.resposta p{margin:0 0 22px;color:var(--nevoa);max-width:60ch}
+.pergunta.aberta .resposta{grid-template-rows:1fr}
+.faixa{margin-top:clamp(70px,9vw,120px);background:var(--acento);color:var(--sobre-acento);overflow:hidden;white-space:nowrap;padding-block:16px}
+.faixa div{display:inline-flex;gap:48px;font:600 .9rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;animation:corre 38s linear infinite;padding-left:48px}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* ---------- CONTATO ---------- */
+.contato{position:relative;z-index:6;padding-block:clamp(80px,10vw,140px)}
+.contato .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,70px);margin-top:clamp(30px,4vw,50px)}
+@media (max-width:860px){.contato .grade{grid-template-columns:1fr}}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;color:var(--tinta)}
+.horario td{padding:14px 0;border-bottom:1px solid var(--linha-clara);font-size:1rem}
+.horario td:last-child{text-align:right;font-family:var(--f-mono);font-size:.9rem}
+.horario tr.hoje td{font-weight:700}
+.horario tr.hoje td:first-child::after{content:"hoje";margin-left:10px;font:600 .64rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;background:var(--acento);color:var(--sobre-acento);padding:.35em .6em;border-radius:99px;vertical-align:middle}
+.cartao-contato{background:var(--branco);border-radius:var(--raio);padding:clamp(22px,3vw,34px);display:grid;gap:22px;box-shadow:inset 0 0 0 1px var(--linha-clara)}
+.dado{display:grid;gap:6px}
+.dado b{font:600 1.15rem/1.3 var(--f-display);word-break:break-word}
+.dado .lin{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.etiqueta{font:600 .62rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;background:var(--porcelana-2);color:var(--texto-2);padding:.4em .6em;border-radius:99px}
+.copiar{justify-self:start;border:0;background:none;padding:6px 0;font:500 .78rem/1 var(--f-mono);color:var(--acento);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- FECHO ---------- */
+.fecho{position:relative;z-index:6;background:var(--preto);overflow:hidden;padding-top:clamp(90px,11vw,160px)}
+.fecho .chamada{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px}
+.fecho .chamada .titulo{max-width:16ch}
+.fecho .chamada .titulo b{color:var(--acento)}
+.nome-gigante{margin:clamp(50px,7vw,90px) 0 0;font:800 clamp(4rem,18.5vw,19rem)/.8 var(--f-display);letter-spacing:-.05em;white-space:nowrap;text-align:center;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,30%),var(--led) 0,var(--porcelana) 9%,#3b3a38 32%,#1b1b1a 60%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;transform:translateY(.14em)}
+.rodape{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;padding-block:22px max(22px,env(safe-area-inset-bottom,0px));border-top:1px solid var(--linha-escura);font:500 .7rem/1.5 var(--f-mono);letter-spacing:.08em;color:var(--cinza);position:relative;z-index:1;background:var(--preto)}
+
+/* ---------- GAVETA ---------- */
+.veu{position:fixed;inset:0;z-index:60;background:rgba(7,7,7,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .45s}
+.veu.on{opacity:1;pointer-events:auto}
+.gaveta{position:fixed;top:0;right:0;bottom:0;z-index:61;width:min(500px,100%);background:var(--porcelana);color:var(--tinta);display:flex;flex-direction:column;transform:translateX(104%);transition:transform .6s var(--mola);box-shadow:-30px 0 80px -30px rgba(0,0,0,.6);padding-right:env(safe-area-inset-right,0px)}
+.gaveta.on{transform:none}
+@media (max-width:620px){
+  .gaveta{top:auto;left:0;width:100%;height:min(92svh,780px);border-radius:22px 22px 0 0;transform:translateY(104%);padding-left:env(safe-area-inset-left,0px)}
+}
+.g-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(18px + env(safe-area-inset-top,0px)) 22px 14px;border-bottom:1px solid var(--linha-clara)}
+@media (max-width:620px){.g-topo{padding-top:18px}}
+.g-topo h2{margin:0;font:700 1.1rem/1.2 var(--f-display)}
+.g-topo .passo-txt{font:500 .7rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--cinza);margin-top:6px}
+.fechar{width:40px;height:40px;border-radius:50%;border:0;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);font-size:1.3rem;line-height:1;flex:none}
+.trilha{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:14px 22px 0}
+.trilha i{height:3px;border-radius:3px;background:var(--porcelana-2);transition:background .3s}
+.trilha i.on{background:var(--acento)}
+.g-corpo{flex:1;min-height:0;overflow-y:auto;padding:22px;overscroll-behavior:contain}
+.g-corpo h3{margin:0 0 6px;font:700 1.35rem/1.15 var(--f-display)}
+.g-corpo .ajuda{margin:0 0 18px;color:var(--texto-2);font-size:.93rem}
+.opcoes{display:grid;gap:8px}
+.opcao{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);cursor:pointer;transition:box-shadow .2s}
+.opcao:has(input:checked){box-shadow:inset 0 0 0 2px var(--acento)}
+.opcao input{width:18px;height:18px;accent-color:var(--acento);flex:none;margin:0}
+.opcao .oc{font:600 .8rem/1 var(--f-mono);min-width:3.6em;color:var(--acento)}
+.opcao b{font-weight:600;font-size:.95rem}
+.opcao small{display:block;color:var(--cinza);font-size:.8rem;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips span{display:inline-block;padding:.75em 1.1em;border-radius:99px;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);font-weight:600;font-size:.9rem}
+.chips input:checked+span{background:var(--tinta);color:var(--porcelana);box-shadow:none}
+.chips input:focus-visible+span{outline:2px solid var(--acento);outline-offset:2px}
+.campo{display:grid;gap:6px;margin-bottom:14px}
+.campo label{font:600 .74rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--texto-2)}
+.campo input{width:100%;padding:14px 14px;border-radius:12px;border:0;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);font:500 1rem/1.2 var(--f-corpo);color:var(--tinta)}
+.campo input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--acento)}
+.campo.erro input{box-shadow:inset 0 0 0 2px #c0392b}
+.msg-erro{color:#b03024;font-size:.85rem;margin:6px 0 0;min-height:1.2em}
+.g-pe{display:flex;justify-content:space-between;gap:10px;padding:14px 22px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--linha-clara);background:var(--porcelana)}
+.g-pe .btn[disabled]{opacity:.6;cursor:progress}
+.confirma{display:grid;gap:16px}
+.dente{width:74px;height:82px;stroke:var(--acento);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dente path{stroke-dasharray:420;stroke-dashoffset:420}
+.confirma.on .dente path{animation:desenha 1.4s .1s var(--mola) forwards}
+@keyframes desenha{to{stroke-dashoffset:0}}
+.resumo{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.92rem}
+.resumo dt{font:600 .7rem/1.6 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+.resumo dd{margin:0}
+.confirma textarea{width:100%;min-height:120px;border-radius:12px;border:0;padding:12px;background:var(--branco);box-shadow:inset 0 0 0 1px var(--linha-clara);font:500 .85rem/1.45 var(--f-mono);color:var(--tinta);resize:vertical}
+.aviso{font:500 .72rem/1.45 var(--f-mono);color:var(--cinza);letter-spacing:.03em}
+.acoes-conf{display:flex;flex-wrap:wrap;gap:10px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .faixa div{animation:none}
+}
+</style>
+</head>
+<body>
+<header class="nav wrap antes-intro" data-tinta="clara">
+  <a class="marca" href="#topo" aria-label="MJ Clinic, voltar ao início"><img src="img/logo.webp" alt="" width="40" height="40"><span>MJ Clinic</span></a>
+  <ul class="nav-links">
+    <li><a href="#equipamentos">Equipamentos</a></li>
+    <li><a href="#processo">Como funciona</a></li>
+    <li><a href="#duvidas">Dúvidas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="btn btn-acao nav-orc" type="button" data-abre-orcamento>Orçamento <span class="cont" hidden>0</span></button>
+</header>
+<div class="trilho" aria-hidden="true"><i></i></div>
+
+<main>
+<section class="hero" id="topo" aria-labelledby="h1">
+  <h1 id="h1" class="sr-only">MJ Clinic, equipamentos odontológicos</h1>
+  <div class="feixe" aria-hidden="true"></div>
+  <div class="poca" aria-hidden="true"></div>
+  <p class="palavra palavra-mj" aria-hidden="true"><span class="w">M<span class="j">J</span></span></p>
+  <canvas id="cena" aria-label="Cadeira odontológica em 3D sob o refletor" role="img"></canvas>
+  <img class="cadeira-reserva" src="img/saevo/s404.webp" alt="Consultório odontológico Saevo S404" width="900" height="900">
+  <p class="palavra palavra-clinic" aria-hidden="true"><span class="w">clinic</span></p>
+
+  <div class="abertura" aria-hidden="true">
+    <span class="canto c1">MJ Clinic · Equipamentos odontológicos</span>
+    <button class="canto c2" type="button" tabindex="-1" data-pular>Pular →</button>
+    <span class="canto c3">Refletor de 5 LEDs · 3 intensidades</span>
+    <span class="canto c4">Intensidade<b data-lux>00.000 lux</b></span>
+    <svg class="refletor" viewBox="0 0 300 190" fill="none">
+      <defs>
+        <radialGradient id="g-led"><stop offset="0" stop-color="#fff6e6"/><stop offset=".45" stop-color="#fff6e6" stop-opacity=".55"/><stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle class="halo" cx="150" cy="96" r="120" fill="url(#g-led)"/>
+      <path d="M28 96a122 82 0 0 1 244 0" stroke="#262626" stroke-width="10" stroke-linecap="round"/>
+      <path d="M44 100a106 66 0 0 1 212 0v6a14 14 0 0 1-14 14H58a14 14 0 0 1-14-14z" fill="#121212" stroke="#262626" stroke-width="2"/>
+      <path d="M44 100a106 66 0 0 1 212 0" stroke="#eae8e5" stroke-width="1.5" opacity=".35"/>
+      <g class="leds">
+        <circle cx="86" cy="92" r="11" fill="#262626"/><circle class="led-luz" cx="86" cy="92" r="11" fill="#fff6e6"/>
+        <circle cx="117" cy="76" r="11" fill="#262626"/><circle class="led-luz" cx="117" cy="76" r="11" fill="#fff6e6"/>
+        <circle cx="150" cy="71" r="11" fill="#262626"/><circle class="led-luz" cx="150" cy="71" r="11" fill="#fff6e6"/>
+        <circle cx="183" cy="76" r="11" fill="#262626"/><circle class="led-luz" cx="183" cy="76" r="11" fill="#fff6e6"/>
+        <circle cx="214" cy="92" r="11" fill="#262626"/><circle class="led-luz" cx="214" cy="92" r="11" fill="#fff6e6"/>
+      </g>
+      <path d="M150 14v-14" stroke="#262626" stroke-width="6"/>
+    </svg>
+  </div>
+</section>
+
+<section class="catalogo claro wrap" id="equipamentos" aria-labelledby="t-cat" data-tema="claro">
+  <div class="cab">
+    <span class="rotulo">Equipamentos</span>
+    <h2 class="titulo" id="t-cat">Cada equipamento <b>tem uma ficha.</b></h2>
+    <p>Os números são da ficha técnica da fabricante Saevo. Toque em Orçamento para incluir o equipamento no pedido.</p>
+  </div>
+  <ol class="lista">
+    <li class="linha" data-cod="S404" data-nome="Consultório S404" data-cat="consultorio">
+      <span class="cod">S404</span>
+      <div class="linha-foto"><img src="img/saevo/s404.webp" alt="Consultório odontológico Saevo S404 com estofado marrom" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Consultório S404</h3><p class="desc">Consultório completo: cadeira, equipo, unidade de água e refletor Sirius num conjunto só.</p></div>
+      <div class="ficha"><span>até 200 kg</span><span>45.000 lux</span><span>6 terminais</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="S404">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="SLIM" data-nome="Sensor intraoral Saevo Slim" data-cat="imagem">
+      <span class="cod">SLIM</span>
+      <div class="linha-foto"><img src="img/saevo/slim.webp" alt="Sensor intraoral Saevo Slim, tamanho 2" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Sensor intraoral Saevo Slim</h3><p class="desc">A placa que vai na boca do paciente e manda o raio-X direto para o computador, sem filme nem revelador.</p></div>
+      <div class="ficha"><span>5 mm</span><span>DICOM</span><span>sem licença</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="SLIM">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="AIR" data-nome="Raio-X portátil Air X-Ray" data-cat="imagem">
+      <span class="cod">AIR</span>
+      <div class="linha-foto"><img src="img/saevo/airx.webp" alt="Raio-X portátil Saevo Air X-Ray" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Raio-X portátil Air X-Ray</h3><p class="desc">Raio-X de mão: a radiografia é feita na própria cadeira, sem levar o paciente para outra sala.</p></div>
+      <div class="ficha"><span>portátil</span><span>usa com o Slim</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="AIR">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="AXR" data-nome="Raio-X de parede AXR" data-cat="imagem">
+      <span class="cod">AXR</span>
+      <div class="linha-foto"><img src="img/saevo/axr.webp" alt="Raio-X de parede Saevo AXR com braço pantográfico" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Raio-X de parede AXR</h3><p class="desc">Raio-X fixo na parede, com braço pantográfico leve e fácil de posicionar.</p></div>
+      <div class="ficha"><span>parede</span><span>pantográfico</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="AXR">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="21 L" data-nome="Autoclave 21 L" data-cat="clinica">
+      <span class="cod">21 L</span>
+      <div class="linha-foto"><img src="img/saevo/autoclave.webp" alt="Autoclave Saevo de 21 litros" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Autoclave 21 L</h3><p class="desc">Esteriliza os instrumentos: cruza temperatura e pressão no ciclo e cancela se algum valor sair do padrão.</p></div>
+      <div class="ficha"><span>16 min</span><span>128 °C</span><span>bivolt</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="21 L">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="ORBIS" data-nome="Fotopolimerizador Orbis" data-cat="clinica">
+      <span class="cod">ORBIS</span>
+      <div class="linha-foto"><img src="img/saevo/orbis.webp" alt="Fotopolimerizador Saevo Orbis na base" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Fotopolimerizador Orbis</h3><p class="desc">A caneta de luz que endurece a resina e os materiais fotoativados. Vem com base de apoio.</p></div>
+      <div class="ficha"><span>LED</span><span>com base</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="ORBIS">Orçamento <span class="seta">+</span></button>
+    </li>
+    <li class="linha" data-cod="DUO" data-nome="Ultrassom e jato Sonic Duo" data-cat="clinica">
+      <span class="cod">DUO</span>
+      <div class="linha-foto"><img src="img/saevo/sonic.webp" alt="Ultrassom e jato de bicarbonato Saevo Sonic Duo" loading="lazy" width="598" height="620"></div>
+      <div class="txt"><h3>Ultrassom e jato Sonic Duo</h3><p class="desc">Limpeza completa num aparelho só: ultrassom para o tártaro e jato de bicarbonato.</p></div>
+      <div class="ficha"><span>profilaxia</span><span>2 em 1</span></div>
+      <button class="btn btn-escuro" type="button" data-orcamento="DUO">Orçamento <span class="seta">+</span></button>
+    </li>
+  </ol>
+</section>
+
+<section class="manifesto" id="porque" aria-labelledby="t-man">
+  <span class="rotulo">Por que comprar com a MJ</span>
+  <h2 class="frase" id="t-man">Ninguém merece consultório <b>parado.</b></h2>
+  <div class="pilula" aria-live="polite"><b data-fato-num>45.000 lux</b><span data-fato-txt>Refletor Sirius de 5 LEDs, em três intensidades.</span><span class="pts"><i class="on"></i><i></i><i></i></span></div>
+</section>
+
+<section class="galeria claro wrap" id="detalhes" aria-labelledby="t-gal" data-tema="claro">
+  <div class="cab">
+    <span class="rotulo">Na prática</span>
+    <h2 class="titulo" id="t-gal">Vire a carta <b>e veja a ficha.</b></h2>
+    <p>Passe o mouse ou toque em cada equipamento para ver os números que importam na hora de decidir.</p>
+  </div>
+  <div class="filtros" role="group" aria-label="Filtrar equipamentos">
+    <button type="button" aria-pressed="true" data-filtro="todos">Todos</button>
+    <button type="button" aria-pressed="false" data-filtro="consultorio">Consultório</button>
+    <button type="button" aria-pressed="false" data-filtro="imagem">Imagem</button>
+    <button type="button" aria-pressed="false" data-filtro="clinica">Clínica</button>
+  </div>
+  <div class="cartas">
+    <article class="carta larga" data-cat="consultorio" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/s404.webp" alt="Consultório odontológico Saevo S404 com estofado marrom" loading="lazy"></div><div class="leg"><b>Consultório S404</b><span>Consultório</span></div></div>
+        <div class="face verso"><h3>Consultório S404</h3><ul><li>Cadeira Syncrus G2 com motor de 24 V</li><li>Equipo com até 6 terminais</li><li>Unidade de água rebatível em 60°, cuba de cerâmica</li><li>Refletor Sirius de 5 LEDs, até 45.000 lux</li><li>Estofamento em couro ou PVC, várias cores</li></ul><button class="btn btn-acao" type="button" data-orcamento="S404">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="imagem" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/slim.webp" alt="Sensor intraoral Saevo Slim, tamanho 2" loading="lazy"></div><div class="leg"><b>Sensor Saevo Slim</b><span>Imagem</span></div></div>
+        <div class="face verso"><h3>Sensor Saevo Slim</h3><ul><li>5 mm de espessura, bordas arredondadas</li><li>Tamanho 1: 20 × 30 mm · Tamanho 2: 26 × 36 mm</li><li>Sensor CMOS, exporta em DICOM</li><li>Cabo de 3 m, usa 2 portas USB</li><li>Software Saevo sem licença</li></ul><button class="btn btn-acao" type="button" data-orcamento="SLIM">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="imagem" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/airx.webp" alt="Raio-X portátil Saevo Air X-Ray" loading="lazy"></div><div class="leg"><b>Raio-X portátil Air X-Ray</b><span>Imagem</span></div></div>
+        <div class="face verso"><h3>Raio-X portátil Air X-Ray</h3><ul><li>Radiografia na própria cadeira, segurando com a mão</li><li>Visor e comandos no próprio aparelho</li><li>Junto com o sensor Slim, a imagem vai direto para o computador</li></ul><p class="obs">Ficha técnica completa sob consulta.</p><button class="btn btn-acao" type="button" data-orcamento="AIR">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="imagem" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/axr.webp" alt="Raio-X de parede Saevo AXR" loading="lazy"></div><div class="leg"><b>Raio-X de parede AXR</b><span>Imagem</span></div></div>
+        <div class="face verso"><h3>Raio-X de parede AXR</h3><ul><li>Fixo na parede, ao lado da cadeira</li><li>Braço pantográfico leve, para posicionar com precisão</li></ul><p class="obs">Ficha técnica completa sob consulta.</p><button class="btn btn-acao" type="button" data-orcamento="AXR">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="clinica" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/autoclave.webp" alt="Autoclave Saevo de 21 litros" loading="lazy"></div><div class="leg"><b>Autoclave 21 L</b><span>Clínica</span></div></div>
+        <div class="face verso"><h3>Autoclave 21 L</h3><ul><li>Ciclo completo de cerca de 60 min, 16 min esterilizando</li><li>128 °C a 1,7 kgf/cm²</li><li>Bivolt com seleção automática, 1700 W</li><li>Abastecimento manual, sem instalação hidráulica</li><li>Registro Anvisa 10069210082</li></ul><button class="btn btn-acao" type="button" data-orcamento="21 L">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="clinica" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/orbis.webp" alt="Fotopolimerizador Saevo Orbis" loading="lazy"></div><div class="leg"><b>Fotopolimerizador Orbis</b><span>Clínica</span></div></div>
+        <div class="face verso"><h3>Fotopolimerizador Orbis</h3><ul><li>Para resinas e materiais fotoativados</li><li>Acompanha base de apoio</li></ul><p class="obs">Ficha técnica completa sob consulta.</p><button class="btn btn-acao" type="button" data-orcamento="ORBIS">Pedir orçamento</button></div>
+      </div>
+    </article>
+    <article class="carta" data-cat="clinica" tabindex="0">
+      <div class="carta-in">
+        <div class="face frente"><div class="foto"><img src="img/saevo/sonic.webp" alt="Ultrassom e jato Saevo Sonic Duo" loading="lazy"></div><div class="leg"><b>Sonic Duo</b><span>Clínica</span></div></div>
+        <div class="face verso"><h3>Sonic Duo</h3><ul><li>Ultrassom para remoção de tártaro</li><li>Jato de bicarbonato para polimento</li><li>Profilaxia completa num aparelho só</li></ul><p class="obs">Ficha técnica completa sob consulta.</p><button class="btn btn-acao" type="button" data-orcamento="DUO">Pedir orçamento</button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="processo wrap" id="processo" aria-labelledby="t-pro">
+  <div class="cab" style="margin-bottom:0">
+    <span class="rotulo">Como funciona</span>
+    <h2 class="titulo" id="t-pro">Do primeiro contato <b>à primeira consulta.</b></h2>
+  </div>
+  <div class="paineis" role="tablist" aria-label="Etapas da compra">
+    <button class="painel ativo" type="button" role="tab" aria-selected="true"><span class="fio"></span><span class="cupula"></span><span class="luz"></span><span class="num">01</span><h3>Conversa</h3><p>Você conta como é a sala, o que já tem e o que falta.</p><svg viewBox="0 0 44 44"><path d="M6 10h24a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H16l-7 6v-6H6a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/><path d="M38 18h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2v5l-6-5h-8"/></svg></button>
+    <button class="painel" type="button" role="tab" aria-selected="false"><span class="fio"></span><span class="cupula"></span><span class="luz"></span><span class="num">02</span><h3>Proposta</h3><p>Montamos o orçamento com os itens escolhidos e as formas de pagamento.</p><svg viewBox="0 0 44 44"><path d="M10 4h18l8 8v28H10z"/><path d="M28 4v8h8M16 20h14M16 26h14M16 32h9"/></svg></button>
+    <button class="painel" type="button" role="tab" aria-selected="false"><span class="fio"></span><span class="cupula"></span><span class="luz"></span><span class="num">03</span><h3>Entrega</h3><p>Os equipamentos chegam lacrados. A embalagem só é aberta na instalação.</p><svg viewBox="0 0 44 44"><path d="M4 14l18-8 18 8v18l-18 8-18-8z"/><path d="M4 14l18 8 18-8M22 22v18M13 10l18 8"/></svg></button>
+    <button class="painel" type="button" role="tab" aria-selected="false"><span class="fio"></span><span class="cupula"></span><span class="luz"></span><span class="num">04</span><h3>Instalação</h3><p>Um técnico credenciado instala, testa e mostra como usar.</p><svg viewBox="0 0 44 44"><path d="M28 6a8 8 0 0 0-7 11L6 32a3 3 0 0 0 4 4l15-15a8 8 0 0 0 11-7l-5 2-4-4z"/></svg></button>
+  </div>
+</section>
+
+<section class="bancada wrap" id="monte" aria-labelledby="t-ban" data-tema="claro">
+  <div class="cab">
+    <span class="rotulo">Monte seu orçamento</span>
+    <h2 class="titulo" id="t-ban">Escolha na bancada, <b>a gente fecha o pedido.</b></h2>
+    <p>Adicione os equipamentos e mande tudo de uma vez. O número no botão de orçamento mostra quantos itens você já escolheu.</p>
+  </div>
+  <div class="pedestais">
+    <div class="peca"><div class="foco"><span class="base"></span><img src="img/saevo/s404pose.webp" alt="Consultório S404" loading="lazy"></div><h3>Consultório S404</h3><p>Cadeira, equipo, unidade de água e refletor.</p><button class="btn btn-linha" type="button" aria-pressed="false" data-adiciona="S404">Adicionar</button></div>
+    <div class="peca"><div class="foco"><span class="base"></span><img src="img/saevo/slim.webp" alt="Sensor Saevo Slim" loading="lazy"></div><h3>Sensor Saevo Slim</h3><p>Raio-X digital com 5 mm de espessura.</p><button class="btn btn-linha" type="button" aria-pressed="false" data-adiciona="SLIM">Adicionar</button></div>
+    <div class="peca"><div class="foco"><span class="base"></span><img src="img/saevo/autoclave.webp" alt="Autoclave 21 L" loading="lazy"></div><h3>Autoclave 21 L</h3><p>Esteriliza os instrumentos em 16 minutos.</p><button class="btn btn-linha" type="button" aria-pressed="false" data-adiciona="21 L">Adicionar</button></div>
+    <div class="peca"><div class="foco"><span class="base"></span><img src="img/saevo/sonic.webp" alt="Sonic Duo" loading="lazy"></div><h3>Sonic Duo</h3><p>Ultrassom e jato de bicarbonato juntos.</p><button class="btn btn-linha" type="button" aria-pressed="false" data-adiciona="DUO">Adicionar</button></div>
+  </div>
+  <div class="rodape-bancada"><button class="btn btn-acao" type="button" data-abre-orcamento>Ver meu orçamento <span class="seta">→</span></button></div>
+</section>
+
+<section class="duvidas" id="duvidas" aria-labelledby="t-duv">
+  <div class="grade wrap">
+    <div>
+      <span class="rotulo">Dúvidas</span>
+      <h2 class="titulo" id="t-duv" data-desfoca style="margin-top:14px">Perguntas que chegam <b>antes da compra.</b></h2>
+    </div>
+    <div class="acordeao">
+      <div class="pergunta"><button type="button" aria-expanded="false">A cadeira aguenta paciente de quanto peso?<i></i></button><div class="resposta"><div><p>No consultório S404, a cadeira suporta pacientes de até 200 kg. A elevação é feita por motor de 24 V com sistema pantográfico.</p></div></div></div>
+      <div class="pergunta"><button type="button" aria-expanded="false">Funciona em 127 V ou em 220 V?<i></i></button><div class="resposta"><div><p>Nos dois. O S404 trabalha em 127 V ou 220 V, com a tensão selecionada internamente na instalação. A autoclave de 21 L é bivolt com seleção automática.</p></div></div></div>
+      <div class="pergunta"><button type="button" aria-expanded="false">Quem instala os equipamentos?<i></i></button><div class="resposta"><div><p>Um técnico credenciado. A embalagem só deve ser aberta na presença dele: se for aberta antes, a fabricante cancela a garantia.</p></div></div></div>
+      <div class="pergunta"><button type="button" aria-expanded="false">As peças de mão vêm junto com o consultório?<i></i></button><div class="resposta"><div><p>Não. O equipo do S404 vem com seringa tríplice e terminais de alta rotação, baixa rotação e ultrassom, mas as peças de mão são compradas à parte. Dá para incluir no mesmo orçamento.</p></div></div></div>
+      <div class="pergunta"><button type="button" aria-expanded="false">O sensor Slim precisa de licença de software?<i></i></button><div class="resposta"><div><p>Não. O software da Saevo é livre de licença, exporta as imagens em DICOM e precisa de duas portas USB livres no computador.</p></div></div></div>
+      <div class="pergunta"><button type="button" aria-expanded="false">Quanto tempo leva um ciclo da autoclave?<i></i></button><div class="resposta"><div><p>Cerca de 60 minutos no ciclo completo, com 16 minutos de esterilização efetiva a 128 °C. O tempo muda com o tipo e o volume de material.</p></div></div></div>
+    </div>
+  </div>
+  <div class="faixa" aria-hidden="true"><div><span>Linha Saevo · fabricante brasileira</span><span>Rede de assistência técnica da fabricante</span><span>Registro Anvisa em cada equipamento</span><span>Linha Saevo · fabricante brasileira</span><span>Rede de assistência técnica da fabricante</span><span>Registro Anvisa em cada equipamento</span></div></div>
+</section>
+
+<section class="contato claro wrap" id="contato" aria-labelledby="t-con" data-tema="claro">
+  <span class="rotulo">Contato</span>
+  <h2 class="titulo" id="t-con" style="margin-top:14px">Fale com a <b>MJ Clinic.</b></h2>
+  <div class="grade">
+    <div>
+      <table class="horario" aria-label="Horário de atendimento">
+        <tbody>
+          <tr data-dias="1-5"><td>Segunda a sexta</td><td>08:00 – 18:00</td></tr>
+          <tr data-dias="6"><td>Sábado</td><td>08:00 – 12:00</td></tr>
+          <tr data-dias="0"><td>Domingo</td><td>Fechado</td></tr>
+        </tbody>
+      </table>
+      <p class="aviso" style="margin-top:14px">Horário de exemplo. Troque pelos horários reais da loja.</p>
+    </div>
+    <div class="cartao-contato">
+      <div class="dado"><span class="rotulo">WhatsApp</span><div class="lin"><b data-copiavel>(21) 97381-4957</b></div><button class="copiar" type="button" data-copia>Copiar número</button><a class="btn btn-escuro zap-link" href="https://wa.me/5521973814957?text=Ol%C3%A1%2C%20MJ%20Clinic!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20os%20equipamentos." target="_blank" rel="noopener">Abrir conversa no WhatsApp</a></div>
+      <div class="dado"><span class="rotulo">Endereço</span><div class="lin"><b>Rua do Exemplo, 123 · Cidade/UF</b><span class="etiqueta">exemplo</span></div></div>
+      <div class="dado"><span class="rotulo">Pedidos</span><div class="lin"><b>Orçamento pelo WhatsApp ou pelo site</b></div></div>
+      <button class="btn btn-acao" type="button" data-abre-orcamento style="justify-self:start">Pedir orçamento <span class="seta">→</span></button>
+    </div>
+  </div>
+</section>
+
+<footer class="fecho" id="fim">
+  <div class="chamada wrap">
+    <h2 class="titulo">Seu próximo consultório <b>começa numa conversa.</b></h2>
+    <button class="btn btn-acao" type="button" data-abre-orcamento>Pedir orçamento <span class="seta">→</span></button>
+  </div>
+  <p class="nome-gigante" aria-hidden="true">MJ CLINIC</p>
+  <div class="rodape wrap">
+    <span>© 2026 MJ Clinic · Equipamentos odontológicos</span>
+    <span>Fichas técnicas: Saevo</span>
+    <span>Modelo 3D gerado com Tripo AI</span>
+  </div>
+</footer>
+</main>
+
+<a class="zap" href="https://wa.me/5521973814957?text=Ol%C3%A1%2C%20MJ%20Clinic!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20os%20equipamentos." target="_blank" rel="noopener" aria-label="Falar com a MJ Clinic no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 20.4l1.3-4.1A8.4 8.4 0 1 1 8 19.3z"/><path d="M9.3 8.7c.2-.5.5-.6.8-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.7l-.5.6c-.1.1-.1.3 0 .5.6 1.1 1.5 2 2.6 2.6.2.1.4.1.5 0l.6-.6c.2-.2.4-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.6.8-.6.3-1.5.4-2.5 0-1.9-.7-3.6-2.4-4.3-4.3-.4-1-.3-1.9.1-2.6z" fill="currentColor" stroke="none"/></svg><span>WhatsApp</span></a>
+
+<div class="veu" data-fecha-orcamento></div>
+<aside class="gaveta" role="dialog" aria-modal="true" aria-labelledby="g-tit" aria-hidden="true" inert>
+  <div class="g-topo">
+    <div><h2 id="g-tit">Pedido de orçamento</h2><div class="passo-txt" data-passo-txt>Passo 1 de 4</div></div>
+    <button class="fechar" type="button" aria-label="Fechar pedido" data-fecha-orcamento>×</button>
+  </div>
+  <div class="trilha" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+  <form class="g-corpo" id="form-orc" novalidate>
+    <div class="passo" data-passo="1">
+      <h3>O que você precisa?</h3>
+      <p class="ajuda">Marque um ou mais equipamentos. Dá para mudar depois.</p>
+      <div class="opcoes" data-lista-itens></div>
+      <p class="msg-erro" data-erro="1"></p>
+    </div>
+    <div class="passo" data-passo="2" hidden>
+      <h3>Sobre o consultório</h3>
+      <p class="ajuda">Ajuda a montar uma proposta que caiba na sua sala.</p>
+      <div class="opcoes">
+        <label class="opcao"><input type="radio" name="situacao" id="sit-novo" value="Montando um consultório novo"><span><b>Montando um consultório novo</b><small>Sala vazia ou em reforma</small></span></label>
+        <label class="opcao"><input type="radio" name="situacao" id="sit-amplia" value="Ampliando a clínica"><span><b>Ampliando a clínica</b><small>Mais uma sala ou mais um equipamento</small></span></label>
+        <label class="opcao"><input type="radio" name="situacao" id="sit-troca" value="Trocando um equipamento"><span><b>Trocando um equipamento</b><small>Substituir o que já está na sala</small></span></label>
+      </div>
+      <div class="campo" style="margin-top:16px"><label for="f-cidade">Cidade (opcional)</label><input id="f-cidade" name="cidade" autocomplete="address-level2" placeholder="Cidade onde fica o consultório"></div>
+      <p class="msg-erro" data-erro="2"></p>
+    </div>
+    <div class="passo" data-passo="3" hidden>
+      <h3>Como prefere conversar?</h3>
+      <p class="ajuda">A resposta vem pelo canal que você escolher.</p>
+      <div class="chips" role="radiogroup" aria-label="Canal de contato">
+        <label><input type="radio" name="canal" id="c-whats" value="WhatsApp" checked><span>WhatsApp</span></label>
+        <label><input type="radio" name="canal" id="c-lig" value="Ligação"><span>Ligação</span></label>
+        <label><input type="radio" name="canal" id="c-mail" value="E-mail"><span>E-mail</span></label>
+      </div>
+      <p class="ajuda" style="margin-bottom:10px">Melhor horário</p>
+      <div class="chips" role="radiogroup" aria-label="Melhor horário">
+        <label><input type="radio" name="periodo" id="p-manha" value="de manhã"><span>Manhã</span></label>
+        <label><input type="radio" name="periodo" id="p-tarde" value="à tarde"><span>Tarde</span></label>
+        <label><input type="radio" name="periodo" id="p-qq" value="em qualquer horário" checked><span>Qualquer horário</span></label>
+      </div>
+    </div>
+    <div class="passo" data-passo="4" hidden>
+      <h3>Seus dados</h3>
+      <p class="ajuda">Só para a MJ Clinic saber com quem está falando.</p>
+      <div class="campo"><label for="f-nome">Nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+      <div class="campo"><label for="f-cro">CRO (opcional)</label><input id="f-cro" name="cro" placeholder="Ex.: RJ-12345"></div>
+      <div class="campo"><label for="f-cel">Celular com DDD</label><input id="f-cel" name="cel" inputmode="numeric" autocomplete="tel" placeholder="(21) 90000-0000" required></div>
+      <div class="campo"><label for="f-mail">E-mail <span data-mail-opc>(opcional)</span></label><input id="f-mail" name="mail" type="email" autocomplete="email"></div>
+      <p class="msg-erro" data-erro="4"></p>
+    </div>
+    <div class="passo confirma" data-passo="5" hidden>
+      <svg class="dente" viewBox="0 0 90 100" aria-hidden="true"><path d="M30 10C18 10 10 20 12 34c2 12 6 18 8 32 2 14 6 26 12 26 6 0 6-16 10-24 2-4 4-4 6 0 4 8 4 24 10 24s10-12 12-26c2-14 6-20 8-32 2-14-6-24-18-24-8 0-10 4-15 4s-7-4-15-4z"/></svg>
+      <h3 data-conf-titulo>Pedido pronto.</h3>
+      <dl class="resumo" data-resumo></dl>
+      <div class="acoes-conf">
+        <a class="btn btn-acao" data-whats href="https://wa.me/" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+        <button class="btn btn-linha" type="button" data-copia-msg>Copiar mensagem</button>
+      </div>
+      <label class="sr-only" for="f-msg">Mensagem do pedido</label>
+      <textarea id="f-msg" readonly data-msg></textarea>
+      <p class="aviso">Demonstração: este site ainda não envia pedidos sozinho. A mensagem acima vai pelo WhatsApp ou pelo canal que você copiar.</p>
+      <button class="btn btn-linha" type="button" data-novo>Fazer outro pedido</button>
+    </div>
+  </form>
+  <div class="g-pe">
+    <button class="btn btn-linha" type="button" data-voltar>Voltar</button>
+    <button class="btn btn-escuro" type="button" data-avancar>Continuar <span class="seta">→</span></button>
+  </div>
+</aside>
+
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-pendente');setTimeout(function(){document.documentElement.classList.remove('intro-pendente')},7000)</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const html = document.documentElement;
+  const MJ = window.MJ = Object.assign(window.MJ || {}, { intro: 0, heroP: 0, mx: 0, my: 0, manV: 0, manOffset: 0 });
+  const reduz = MJ.reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const temMouse = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const temGsap = !!(window.gsap && window.ScrollTrigger);
+  if (temGsap) gsap.registerPlugin(ScrollTrigger);
+  const tenta = (nome, fn) => { try { fn(); } catch (e) { console.warn('[' + nome + ']', e); } };
+
+  /* ---------- catálogo de itens (lido do próprio HTML) ---------- */
+  const ITENS = $$('.linha').map(l => ({ cod: l.dataset.cod, nome: l.dataset.nome }));
+  const nomeDe = cod => (ITENS.find(i => i.cod === cod) || { nome: cod }).nome;
+  const pedido = new Set();
+
+  /* ---------- horário ---------- */
+  const HORARIO = { 0: null, 1: [8, 18], 2: [8, 18], 3: [8, 18], 4: [8, 18], 5: [8, 18], 6: [8, 12] };
+  const DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+  const hh = h => String(Math.floor(h)).padStart(2, '0') + ':' + String(Math.round((h % 1) * 60)).padStart(2, '0');
+  function estado(agora = new Date()) {
+    const d = agora.getDay(), h = agora.getHours() + agora.getMinutes() / 60, hoje = HORARIO[d];
+    if (hoje && h >= hoje[0] && h < hoje[1]) return { aberto: true, ate: hoje[1] };
+    if (hoje && h < hoje[0]) return { aberto: false, quando: 'hoje', hora: hoje[0] };
+    for (let k = 1; k <= 7; k++) { const dd = (d + k) % 7, x = HORARIO[dd]; if (x) return { aberto: false, quando: k === 1 ? 'amanhã' : (dd === 6 ? 'no sábado' : 'na ' + DIAS[dd]), hora: x[0] }; }
+    return { aberto: false, quando: 'em breve', hora: 8 };
+  }
+  tenta('horario', () => {
+    const e = estado();
+    const d = new Date().getDay();
+    $$('.horario tr').forEach(tr => {
+      const [a, b] = tr.dataset.dias.split('-').map(Number);
+      if (d >= a && d <= (b ?? a)) tr.classList.add('hoje');
+    });
+  });
+
+  /* ---------- rolagem suave ---------- */
+  let lenis = null;
+  tenta('lenis', () => {
+    if (!window.Lenis || reduz) return;
+    lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.8, smoothWheel: true });
+    if (temGsap) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+    else { const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+  });
+  const scrollY = () => lenis ? lenis.scroll : window.scrollY;
+  function irPara(alvo) {
+    const el = typeof alvo === 'string' ? $(alvo) : alvo;
+    if (!el) return;
+    if (lenis) lenis.scrollTo(el, { duration: 1.4 });
+    else el.scrollIntoView({ behavior: reduz ? 'auto' : 'smooth' });
+  }
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1 && $(id)) { e.preventDefault(); irPara(id); }
+  }));
+
+  /* ---------- nav e barra própria ---------- */
+  tenta('nav', () => {
+    const nav = $('.nav'), trilho = $('.trilho'), thumb = $('.trilho i');
+    const claras = $$('[data-tema="claro"]');
+    let ultimo = 0, timer = null, pedidoRaf = false;
+    function atualiza() {
+      pedidoRaf = false;
+      const y = scrollY();
+      if (!html.classList.contains('intro-rodando')) nav.classList.toggle('oculta', y > ultimo && y > 160);
+      ultimo = y;
+      const sobre = claras.some(s => { const r = s.getBoundingClientRect(); return r.top <= 40 && r.bottom > 40; });
+      nav.dataset.tinta = sobre ? 'escura' : 'clara';
+      html.classList.toggle('zap-on', y > innerHeight * 0.95); // o WhatsApp aparece quando o nome sai do hero
+      const vh = innerHeight, dh = document.documentElement.scrollHeight;
+      const h = Math.max(40, vh * vh / dh), top = (y / Math.max(1, dh - vh)) * (vh - h);
+      thumb.style.height = h + 'px'; thumb.style.transform = `translateY(${top}px)`;
+      trilho.classList.add('mostra'); clearTimeout(timer); timer = setTimeout(() => trilho.classList.remove('mostra'), 900);
+    }
+    const pede = () => { if (!pedidoRaf) { pedidoRaf = true; requestAnimationFrame(atualiza); } };
+    if (lenis) lenis.on('scroll', pede); else addEventListener('scroll', pede, { passive: true });
+    addEventListener('resize', pede);
+    atualiza();
+  });
+
+  /* ---------- cursor global (a cadeira olha para ele) ---------- */
+  addEventListener('pointermove', e => { MJ.mx = (e.clientX / innerWidth) * 2 - 1; MJ.my = (e.clientY / innerHeight) * 2 - 1; }, { passive: true });
+
+  /* ---------- abertura ---------- */
+  const nav = $('.nav');
+  const ui = $('.hero-ui');
+  const lede = $('[data-digita]');
+  function preparaDigitacao() {
+    const frag = document.createDocumentFragment();
+    lede.childNodes.forEach(n => {
+      const alvo = n.nodeType === 3 ? frag : frag.appendChild(document.createElement(n.tagName));
+      [...n.textContent].forEach(ch => { const s = document.createElement('span'); s.textContent = ch; s.className = 'ch'; s.style.opacity = '0'; alvo.appendChild(s); });
+    });
+    lede.textContent = ''; lede.appendChild(frag);
+    return $$('.ch', lede);
+  }
+  function fimAbertura() {
+    html.classList.remove('intro-rodando', 'intro-pendente');
+    nav.classList.remove('antes-intro');
+    const ab = $('.abertura'); if (ab) ab.remove();
+    MJ.intro = 1;
+    if (lenis) lenis.start();
+  }
+  tenta('abertura', () => {
+    if (reduz || !temGsap) { fimAbertura(); return; }
+    html.classList.add('intro-rodando');
+    if (lenis) lenis.stop();
+    const fontes = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    Promise.race([fontes, new Promise(r => setTimeout(r, 1500))]).then(() => tenta('abertura-tl', comeca));
+  });
+  function comeca() {
+    const leds = $$('.refletor .led-luz'), halo = $('.refletor .halo'), lux = $('[data-lux]');
+    const hero = $('.hero');
+    const palavras = [$('.palavra-mj .w'), $('.palavra-clinic .w')];
+    const vw = innerWidth, vh = innerHeight;
+    // as duas palavras começam juntas, como uma assinatura pequena embaixo do refletor
+    const rs = palavras.map(w => w.getBoundingClientRect());
+    const altura = Math.min(vh * 0.05, 40);
+    const esc = rs.map(r => altura / r.height);
+    const larg = rs.map((r, i) => r.width * esc[i]), vao = altura * 0.32;
+    const ini = vw / 2 - (larg[0] + vao + larg[1]) / 2, cy = vh * 0.56;
+    const cxs = [ini + larg[0] / 2, ini + larg[0] + vao + larg[1] / 2];
+    palavras.forEach((w, i) => {
+      const r = rs[i];
+      gsap.set(w, { x: cxs[i] - (r.left + r.width / 2), y: cy - (r.top + r.height / 2), scale: esc[i], opacity: 0, transformOrigin: '50% 50%' });
+    });
+    if (ui) gsap.set(ui.children, { opacity: 0, y: 18 });
+    gsap.set(hero, { '--feixe': 0 });
+    const chars = lede ? preparaDigitacao() : [];
+    const cont = { v: 0 };
+    const fmt = v => { const n = Math.round(v / 100) * 100; return String(n).padStart(5, '0').replace(/(\d{2})(\d{3})$/, '$1.$2') + ' lux'; };
+    const tl = gsap.timeline({ onComplete: fimAbertura });
+    tl.to(palavras, { opacity: 1, duration: 0.8, ease: 'power2.out', stagger: 0.12 }, 0.1)
+      .to(cont, { v: 45000, duration: 1.45, ease: 'power1.inOut', onUpdate: () => { lux.textContent = fmt(cont.v); } }, 0.2)
+      .to(leds, { opacity: 1, duration: 0.18, stagger: 0.27, ease: 'power2.out' }, 0.25)
+      .to(halo, { opacity: 1, duration: 0.5 }, 1.25)
+      .to('.refletor', { scale: 1.15, opacity: 0, y: -24, duration: 0.8, ease: 'power2.inOut' }, 1.75)
+      .to(['.abertura .c3', '.abertura .c4', '.abertura .c1'], { opacity: 0, duration: 0.4 }, 1.8)
+      .to(hero, { '--feixe': 1, duration: 0.7, ease: 'power2.out' }, 1.85)
+      .to(MJ, { intro: 1, duration: 1.0, ease: 'power2.inOut' }, 1.9)
+      .to(palavras, { x: 0, y: 0, scale: 1, duration: 1.3, ease: 'power3.inOut', stagger: 0.08 }, 1.95)
+      .add(() => nav.classList.remove('antes-intro'), 2.8)
+      .add(() => { if (ui) gsap.to(ui.children, { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }); if (chars.length) gsap.to(chars, { opacity: 1, duration: 0.01, stagger: 0.022 }); }, 2.85)
+      .to('.abertura .c2', { opacity: 0, duration: 0.3 }, 3.3);
+    html.classList.remove('intro-pendente');
+    MJ.tlIntro = tl;
+    const acelera = () => { if (tl.isActive()) tl.timeScale(6); };
+    $('[data-pular]').addEventListener('click', acelera);
+    ['wheel', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, acelera, { once: true, passive: true }));
+  }
+
+  /* ---------- hero preso: interface sai, cadeira gira e some na névoa ---------- */
+  tenta('hero', () => {
+    if (!temGsap) return;
+    const hero = $('.hero'), mj = $('.palavra-mj'), cl = $('.palavra-clinic'), rod = $('.hero-rodape');
+    const cor = (a, b, t) => a.map((x, i) => Math.round(x + (b[i] - x) * t));
+    const PRETO = [7, 7, 7], PORC = [234, 232, 229];
+    const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+    function aplica(p) {
+      MJ.heroP = p;
+      const s = clamp(p / 0.22);
+      if (ui) { ui.style.opacity = String(1 - s); ui.style.transform = `translateY(${-40 * s}px)`; }
+      if (rod) rod.style.opacity = String(1 - s);
+      const f = clamp((p - 0.25) / 0.55);
+      mj.style.transform = `translate(${-6 * p}vw, ${-12 * p}vh)`; mj.style.opacity = String(1 - f);
+      cl.style.transform = `translate(${4 * p}vw, ${10 * p}vh)`; cl.style.opacity = String(1 - f);
+      const n = smooth(0.32, 0.95, p);
+      const c = cor(PRETO, PORC, n);
+      hero.style.setProperty('--hero-bg', `rgb(${c[0]},${c[1]},${c[2]})`);
+      hero.style.setProperty('--feixe', String(MJ.intro * (1 - n)));
+      MJ.nevoa = n;
+    }
+    ScrollTrigger.create({ trigger: hero, start: 'top top', end: '+=135%', pin: true, scrub: true, onUpdate: s => aplica(s.progress) });
+    aplica(0);
+  });
+
+  /* ---------- catálogo: a linha sob o cursor acende ---------- */
+  tenta('catalogo', () => {
+    const lista = $('.lista'), linhas = $$('.linha', lista);
+    let ativa = null;
+    function ativar(l) {
+      if (l === ativa) return;
+      linhas.forEach(x => x.classList.toggle('ativa', x === l));
+      ativa = l;
+    }
+    if (temMouse) {
+      lista.addEventListener('pointermove', e => { const l = e.target.closest('.linha'); if (l) ativar(l); });
+      lista.addEventListener('pointerenter', () => lista.classList.add('focando'));
+      lista.addEventListener('pointerleave', () => { lista.classList.remove('focando'); ativar(null); });
+    } else {
+      const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) ativar(e.target); }), { rootMargin: '-48% 0px -48% 0px' });
+      linhas.forEach(l => obs.observe(l));
+    }
+  });
+
+  /* ---------- manifesto ---------- */
+  const FATOS = [
+    ['45.000 lux', 'Refletor Sirius de 5 LEDs, em três intensidades.'],
+    ['5 mm', 'Sensor Saevo Slim: imagem digital em segundos, sem revelador.'],
+    ['Credenciado', 'Instalação e assistência pela rede técnica da fabricante.']
+  ];
+  let fatoAtual = 0;
+  MJ.onFrente = i => {
+    if (i === fatoAtual) return; fatoAtual = i;
+    const num = $('[data-fato-num]'), txt = $('[data-fato-txt]');
+    const troca = () => { num.textContent = FATOS[i][0]; txt.textContent = FATOS[i][1]; $$('.pilula .pts i').forEach((p, k) => p.classList.toggle('on', k === i)); };
+    if (window.gsap && !reduz) gsap.timeline().to([num, txt], { opacity: 0, y: -6, duration: 0.15 }).add(troca).to([num, txt], { opacity: 1, y: 0, duration: 0.25 });
+    else troca();
+  };
+  tenta('manifesto', () => {
+    if (!temGsap) return;
+    const plato = p => {
+      const raw = clamp(p) * 2.0, i = Math.min(1, Math.floor(raw)), f = raw - i;
+      const t = clamp((f - 0.3) / 0.4); return i + t * t * (3 - 2 * t);
+    };
+    ScrollTrigger.create({ trigger: '.manifesto', start: 'top top', end: '+=200%', pin: true, scrub: true, onUpdate: s => { MJ.manV = plato(s.progress); MJ.onFrente(Math.round(MJ.manV)); } });
+  });
+
+  /* ---------- processo: a luz passa de painel em painel ---------- */
+  tenta('processo', () => {
+    const paineis = $$('.painel');
+    let atual = 0;
+    function ativa(i, foco) {
+      i = clamp(i, 0, paineis.length - 1); if (i === atual && !foco) return; atual = i;
+      paineis.forEach((p, k) => { p.classList.toggle('ativo', k === i); p.setAttribute('aria-selected', k === i ? 'true' : 'false'); p.tabIndex = k === i ? 0 : -1; });
+      if (foco) paineis[i].focus();
+    }
+    paineis.forEach((p, k) => {
+      p.addEventListener('click', () => ativa(k));
+      if (temMouse) p.addEventListener('pointerenter', () => ativa(k));
+      p.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); ativa(atual + 1, true); } if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); ativa(atual - 1, true); } });
+    });
+    ativa(0, false); paineis.forEach((p, k) => p.tabIndex = k === 0 ? 0 : -1);
+    if (!temGsap) return;
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 861px)', () => {
+      ScrollTrigger.create({ trigger: '.processo', start: 'top top', end: '+=140%', pin: true, scrub: true, onUpdate: s => ativa(Math.min(3, Math.floor(s.progress * 4))) });
+    });
+    mm.add('(max-width: 860px)', () => {
+      ScrollTrigger.create({ trigger: '.paineis', start: 'top 70%', end: 'bottom 35%', scrub: true, onUpdate: s => ativa(Math.min(3, Math.floor(s.progress * 4))) });
+    });
+  });
+
+  /* ---------- galeria: filtros com FLIP e virada no toque ---------- */
+  tenta('galeria', () => {
+    const cartas = $$('.carta'), botoes = $$('.filtros button');
+    botoes.forEach(b => b.addEventListener('click', () => {
+      const f = b.dataset.filtro;
+      botoes.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+      const antes = new Map(cartas.map(c => [c, c.getBoundingClientRect()]));
+      cartas.forEach(c => { c.hidden = !(f === 'todos' || c.dataset.cat === f); });
+      if (!window.gsap || reduz) return;
+      cartas.forEach(c => {
+        if (c.hidden) return;
+        const a = antes.get(c), d = c.getBoundingClientRect();
+        if (a.width === 0) gsap.fromTo(c, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' });
+        else gsap.fromTo(c, { x: a.left - d.left, y: a.top - d.top }, { x: 0, y: 0, duration: 0.6, ease: 'power3.inOut' });
+      });
+      if (temGsap) ScrollTrigger.refresh();
+    }));
+    if (!temMouse) {
+      const obs = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('virada', e.isIntersecting)), { rootMargin: '-42% 0px -42% 0px' });
+      cartas.forEach(c => obs.observe(c));
+    }
+  });
+
+  /* ---------- dúvidas: título sai do desfoque, acordeão ---------- */
+  tenta('duvidas', () => {
+    $$('[data-desfoca]').forEach(t => {
+      let i = 0;
+      const quebra = n => {
+        [...n.childNodes].forEach(c => {
+          if (c.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; } const s = document.createElement('span'); s.className = 'pal'; s.style.setProperty('--i', i++); s.textContent = p; frag.appendChild(s); });
+            c.replaceWith(frag);
+          } else quebra(c);
+        });
+      };
+      quebra(t);
+      if (reduz || t.getBoundingClientRect().top < innerHeight) return;
+      t.classList.add('desfoca');
+      const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { t.classList.remove('desfoca'); obs.disconnect(); } }), { threshold: 0.4 });
+      obs.observe(t);
+    });
+    const perguntas = $$('.pergunta');
+    perguntas.forEach(p => {
+      const b = $('button', p);
+      b.addEventListener('click', () => {
+        const abrir = b.getAttribute('aria-expanded') !== 'true';
+        perguntas.forEach(q => { q.classList.remove('aberta'); $('button', q).setAttribute('aria-expanded', 'false'); });
+        if (abrir) { p.classList.add('aberta'); b.setAttribute('aria-expanded', 'true'); }
+        if (temGsap) setTimeout(() => ScrollTrigger.refresh(), 600);
+      });
+    });
+  });
+
+  /* ---------- fecho: o foco segue o mouse ---------- */
+  tenta('fecho', () => {
+    const nome = $('.nome-gigante'), fecho = $('.fecho');
+    if (temMouse) fecho.addEventListener('pointermove', e => { const r = nome.getBoundingClientRect(); nome.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); nome.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%'); });
+    else if (!reduz) { let t = 0; const anda = () => { t += 0.006; nome.style.setProperty('--mx', (50 + Math.sin(t) * 40) + '%'); nome.style.setProperty('--my', (35 + Math.cos(t * 1.3) * 20) + '%'); requestAnimationFrame(anda); }; requestAnimationFrame(anda); }
+  });
+
+  /* ---------- copiar ---------- */
+  async function copia(texto, el) {
+    try { await navigator.clipboard.writeText(texto); return true; }
+    catch (e) { if (el) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } return false; }
+  }
+  $$('[data-copia]').forEach(b => b.addEventListener('click', async () => {
+    const alvo = $('[data-copiavel]', b.closest('.dado'));
+    const ok = await copia(alvo.textContent.trim(), alvo);
+    b.textContent = ok ? 'Número copiado' : 'Número selecionado, copie com Ctrl+C';
+    setTimeout(() => { b.textContent = 'Copiar número'; }, 2400);
+  }));
+
+  /* ---------- pedido (contador e bancada) ---------- */
+  function atualizaPedido() {
+    const n = pedido.size;
+    $$('.nav-orc .cont').forEach(c => { c.hidden = n === 0; c.textContent = String(n); });
+    $$('[data-adiciona]').forEach(b => { const on = pedido.has(b.dataset.adiciona); b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.textContent = on ? 'No orçamento ✓' : 'Adicionar'; });
+    $$('[data-lista-itens] input').forEach(i => { i.checked = pedido.has(i.value); });
+  }
+  $$('[data-adiciona]').forEach(b => b.addEventListener('click', () => { const c = b.dataset.adiciona; pedido.has(c) ? pedido.delete(c) : pedido.add(c); atualizaPedido(); }));
+
+  /* ---------- gaveta de orçamento ---------- */
+  tenta('gaveta', () => {
+    const gaveta = $('.gaveta'), veu = $('.veu'), form = $('#form-orc');
+    const lista = $('[data-lista-itens]');
+    lista.innerHTML = ITENS.map((it, k) => `<label class="opcao"><input type="checkbox" id="it-${k}" value="${it.cod}"><span class="oc">${it.cod}</span><b>${it.nome}</b></label>`).join('');
+    $$('input', lista).forEach(i => i.addEventListener('change', () => { i.checked ? pedido.add(i.value) : pedido.delete(i.value); atualizaPedido(); }));
+    const passos = $$('.passo', form), trilha = $$('.trilha i'), txt = $('[data-passo-txt]');
+    const voltar = $('[data-voltar]'), avancar = $('[data-avancar]'), pe = $('.g-pe');
+    let passo = 1, ultimoFoco = null;
+    const cel = $('#f-cel');
+    cel.addEventListener('input', () => {
+      const d = cel.value.replace(/\D/g, '').slice(0, 11);
+      let v = d;
+      if (d.length > 2) v = `(${d.slice(0, 2)}) ` + (d.length > 7 ? d.slice(2, d.length - 4) + '-' + d.slice(-4) : d.slice(2));
+      else if (d.length) v = `(${d}`;
+      cel.value = v;
+    });
+    $$('input[name="canal"]').forEach(r => r.addEventListener('change', () => { $('[data-mail-opc]').textContent = r.value === 'E-mail' && r.checked ? '(obrigatório)' : '(opcional)'; }));
+    function mostra(n) {
+      passo = n;
+      passos.forEach(p => { p.hidden = Number(p.dataset.passo) !== n; });
+      trilha.forEach((t, k) => t.classList.toggle('on', k < n));
+      txt.textContent = n <= 4 ? `Passo ${n} de 4` : 'Pedido pronto';
+      pe.hidden = n === 5;
+      voltar.style.visibility = n === 1 ? 'hidden' : 'visible';
+      avancar.innerHTML = n === 4 ? 'Enviar pedido <span class="seta">→</span>' : 'Continuar <span class="seta">→</span>';
+      form.scrollTop = 0;
+      const foco = $('input, button, a', passos[n - 1]);
+      if (foco && gaveta.classList.contains('on')) setTimeout(() => foco.focus({ preventScroll: true }), 60);
+    }
+    function erro(n, m) { const e = $(`[data-erro="${n}"]`); if (e) e.textContent = m || ''; }
+    function valida(n) {
+      erro(n, '');
+      if (n === 1 && pedido.size === 0) { erro(1, 'Escolha pelo menos um equipamento.'); return false; }
+      if (n === 2 && !$('input[name="situacao"]:checked')) { erro(2, 'Escolha a situação do consultório.'); return false; }
+      if (n === 4) {
+        $$('.campo', passos[3]).forEach(c => c.classList.remove('erro'));
+        const nome = $('#f-nome').value.trim(), d = cel.value.replace(/\D/g, ''), mail = $('#f-mail').value.trim();
+        const canal = $('input[name="canal"]:checked').value;
+        const falhas = [];
+        if (nome.length < 2) { falhas.push('seu nome'); $('#f-nome').closest('.campo').classList.add('erro'); }
+        if (d.length < 10) { falhas.push('um celular com DDD'); cel.closest('.campo').classList.add('erro'); }
+        if ((canal === 'E-mail' || mail) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { falhas.push('um e-mail válido'); $('#f-mail').closest('.campo').classList.add('erro'); }
+        if (falhas.length) { erro(4, 'Preencha ' + falhas.join(', ') + '.'); return false; }
+      }
+      return true;
+    }
+    function abrir(pre = []) {
+      pre.forEach(c => pedido.add(c)); atualizaPedido();
+      ultimoFoco = document.activeElement;
+      gaveta.removeAttribute('inert'); gaveta.setAttribute('aria-hidden', 'false');
+      gaveta.classList.add('on'); veu.classList.add('on');
+      if (lenis) lenis.stop(); else document.body.style.overflow = 'hidden';
+      mostra(passo === 5 ? 5 : (pre.length ? 1 : passo));
+      setTimeout(() => { const f = $('input, button, a', passos[passo - 1]) || $('.fechar'); f.focus({ preventScroll: true }); }, 80);
+    }
+    function fechar() {
+      gaveta.classList.remove('on'); veu.classList.remove('on');
+      gaveta.setAttribute('aria-hidden', 'true'); gaveta.setAttribute('inert', '');
+      if (lenis) lenis.start(); else document.body.style.overflow = '';
+      if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus({ preventScroll: true });
+    }
+    MJ.abrirOrcamento = abrir;
+    $$('[data-abre-orcamento]').forEach(b => b.addEventListener('click', () => abrir()));
+    $$('[data-orcamento]').forEach(b => b.addEventListener('click', () => abrir([b.dataset.orcamento])));
+    $$('[data-fecha-orcamento]').forEach(b => b.addEventListener('click', fechar));
+    addEventListener('keydown', e => {
+      if (!gaveta.classList.contains('on')) return;
+      if (e.key === 'Escape') { e.preventDefault(); fechar(); }
+      if (e.key === 'Tab') {
+        const foc = $$('a[href], button:not([disabled]), input, textarea', gaveta).filter(el => el.offsetParent !== null);
+        if (!foc.length) return;
+        const a = foc[0], z = foc[foc.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+        else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      }
+    });
+    voltar.addEventListener('click', () => { if (passo > 1) mostra(passo - 1); });
+    avancar.addEventListener('click', () => {
+      if (!valida(passo)) return;
+      if (passo < 4) { mostra(passo + 1); return; }
+      avancar.disabled = true; avancar.textContent = 'Preparando…';
+      setTimeout(() => { avancar.disabled = false; conclui(); }, 900);
+    });
+    form.addEventListener('submit', e => { e.preventDefault(); avancar.click(); });
+    function conclui() {
+      const nome = $('#f-nome').value.trim(), cro = $('#f-cro').value.trim(), celv = cel.value.trim(), mail = $('#f-mail').value.trim();
+      const sit = $('input[name="situacao"]:checked').value, cidade = $('#f-cidade').value.trim();
+      const canal = $('input[name="canal"]:checked').value, periodo = $('input[name="periodo"]:checked').value;
+      const itens = [...pedido].map(nomeDe);
+      const msg = `Olá, MJ Clinic! Sou ${nome}${cro ? ' (CRO ' + cro + ')' : ''}.\nQuero um orçamento de: ${itens.join(', ')}.\nSituação: ${sit}${cidade ? ', em ' + cidade : ''}.\nPrefiro contato por ${canal.toLowerCase()}, ${periodo}. Celular: ${celv}${mail ? ' · E-mail: ' + mail : ''}.`;
+      $('[data-conf-titulo]').textContent = `Pedido pronto, ${nome.split(/\s+/)[0]}.`;
+      const linhas = [['Itens', itens.join(', ')], ['Situação', sit + (cidade ? ' · ' + cidade : '')], ['Contato', `${canal}, ${periodo}`], ['Celular', celv]];
+      $('[data-resumo]').innerHTML = linhas.map(([a, b]) => `<dt>${a}</dt><dd></dd>`).join('');
+      $$('[data-resumo] dd').forEach((dd, k) => { dd.textContent = linhas[k][1]; });
+      $('[data-msg]').value = msg;
+      const NUMERO = '5521973814957'; // WhatsApp da MJ Clinic: 55 + DDD + número
+      $('[data-whats]').href = `https://wa.me/${NUMERO}?text=${encodeURIComponent(msg)}`;
+      mostra(5);
+      const conf = $('.confirma'); conf.classList.remove('on'); void conf.offsetWidth; conf.classList.add('on');
+    }
+    $('[data-copia-msg]').addEventListener('click', async e => {
+      const b = e.currentTarget, ta = $('[data-msg]');
+      const ok = await copia(ta.value, null);
+      if (!ok) { ta.focus(); ta.select(); }
+      b.textContent = ok ? 'Mensagem copiada' : 'Selecionada, copie com Ctrl+C';
+      setTimeout(() => { b.textContent = 'Copiar mensagem'; }, 2400);
+    });
+    $('[data-novo]').addEventListener('click', () => {
+      pedido.clear(); form.reset(); atualizaPedido(); $('[data-mail-opc]').textContent = '(opcional)'; mostra(1);
+    });
+    mostra(1);
+  });
+  atualizaPedido();
+
+  /* ---------- se o 3D não carregar, mostra a foto ---------- */
+  setTimeout(() => { if (!html.classList.contains('tem-3d')) html.classList.add('sem-cadeira'); }, 8000);
+  addEventListener('load', () => { if (temGsap) ScrollTrigger.refresh(); });
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const MJ = window.MJ || (window.MJ = {});
+const html = document.documentElement;
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const PRETO = new THREE.Color('#070707'), PORC = new THREE.Color('#eae8e5');
+
+function visivel(el, cb) {
+  const io = new IntersectionObserver(es => es.forEach(e => cb(e.isIntersecting)), { rootMargin: '120px 0px' });
+  io.observe(el);
+}
+
+/* ================= HERO: cadeira sob o refletor ================= */
+try {
+  const canvas = document.getElementById('cena');
+  const hero = canvas.closest('.hero');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.78;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(0x000000, 0);
+
+  const cena = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  cena.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  cena.fog = new THREE.FogExp2(PRETO.clone(), 0.02);
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.05, 60);
+
+  const canhao = new THREE.SpotLight(0xfff1dc, 0, 14, 0.5, 0.9, 1.1);
+  canhao.position.set(0.6, 5.2, 2.6);
+  canhao.target.position.set(0, 0.45, 0);
+  canhao.castShadow = true;
+  canhao.shadow.mapSize.set(1024, 1024);
+  canhao.shadow.bias = -0.0004;
+  canhao.shadow.normalBias = 0.02;
+  cena.add(canhao, canhao.target);
+  const contra = new THREE.DirectionalLight(0xdfe3e6, 0);
+  contra.position.set(-3, 2.2, -3);
+  cena.add(contra);
+  const contra2 = new THREE.DirectionalLight(0xdfe3e6, 0); // contraluz do outro lado: recorta a silhueta no escuro
+  contra2.position.set(3, 2.0, -2.5);
+  cena.add(contra2);
+  const ceu = new THREE.HemisphereLight(0xe6e4e0, 0x070707, 0);
+  cena.add(ceu);
+
+  const chao = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.55 }));
+  chao.rotation.x = -Math.PI / 2; chao.receiveShadow = true;
+  cena.add(chao);
+
+  // poça de luz no chão
+  const tc = document.createElement('canvas'); tc.width = tc.height = 256;
+  const g2 = tc.getContext('2d'); const gr = g2.createRadialGradient(128, 128, 0, 128, 128, 128);
+  gr.addColorStop(0, 'rgba(255,243,223,0.9)'); gr.addColorStop(0.45, 'rgba(255,243,223,0.25)'); gr.addColorStop(1, 'rgba(255,243,223,0)');
+  g2.fillStyle = gr; g2.fillRect(0, 0, 256, 256);
+  const pocaMat = new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(tc), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending });
+  const poca = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 2.6), pocaMat);
+  poca.rotation.x = -Math.PI / 2; poca.position.y = 0.004;
+  cena.add(poca);
+
+  // poeira no feixe
+  const N = 520, pos = new Float32Array(N * 3), vel = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    const y = Math.random() * 3.6 + 0.1, r = Math.sqrt(Math.random()) * (0.25 + y * 0.32), a = Math.random() * Math.PI * 2;
+    pos[i * 3] = Math.cos(a) * r; pos[i * 3 + 1] = y; pos[i * 3 + 2] = Math.sin(a) * r * 0.8; vel[i] = 0.0008 + Math.random() * 0.0016;
+  }
+  const poGeo = new THREE.BufferGeometry(); poGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const poMat = new THREE.PointsMaterial({ color: 0xfff3df, size: 0.012, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, fog: true });
+  cena.add(new THREE.Points(poGeo, poMat));
+
+  // cadeira
+  const pivo = new THREE.Group(); cena.add(pivo);
+  const BASE_YAW = 1.5; // de frente para quem olha; a rolagem gira para a direita
+  const porcelana = new THREE.MeshPhysicalMaterial({ color: 0xeaedec, roughness: 0.36, metalness: 0.04, clearcoat: 0.7, clearcoatRoughness: 0.28, envMapIntensity: 0.75 });
+  async function carregaModelo(url) {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    let buf;
+    if (url.endsWith('.txt')) {
+      const bin = atob((await r.text()).trim()); const u = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+      buf = u.buffer;
+    } else buf = await r.arrayBuffer();
+    return new Promise((res, rej) => new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parse(buf, '', res, rej));
+  }
+  carregaModelo('modelos/cadeira.glb').then(gltf => {
+    const raiz = gltf.scene;
+    raiz.traverse(o => {
+      if (!o.isMesh) return;
+      const m = o.material;
+      if (!m || !m.map) o.material = porcelana; // modelo sem textura ganha porcelana; modelo com textura mantém a dele
+      else { m.map.anisotropy = renderer.capabilities.getMaxAnisotropy(); m.color.setScalar(0.4); } // escurece a cadeira: fica com cara de foto de estúdio, não de 3D
+      if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals();
+      o.castShadow = true; o.receiveShadow = true;
+    });
+    const caixa = new THREE.Box3().setFromObject(raiz), tam = caixa.getSize(new THREE.Vector3()), ctr = caixa.getCenter(new THREE.Vector3());
+    const s = 1.3 / Math.max(tam.y, 0.001);
+    raiz.scale.setScalar(s);
+    raiz.position.set(-ctr.x * s, -caixa.min.y * s, -ctr.z * s);
+    pivo.add(raiz);
+    html.classList.add('tem-3d'); html.classList.remove('sem-cadeira');
+  }).catch(err => { console.warn('[cadeira] sem o modelo', err); html.classList.add('sem-cadeira'); });
+
+  let largura = 0, altura = 0, ativo = true;
+  function tamanho() {
+    const r = hero.getBoundingClientRect();
+    largura = Math.max(1, r.width); altura = Math.max(1, r.height);
+    renderer.setSize(largura, altura, false);
+    cam.aspect = largura / altura; cam.updateProjectionMatrix();
+  }
+  tamanho(); addEventListener('resize', tamanho);
+  visivel(hero, v => { ativo = v; });
+
+  let yaw = 0, yawV = 0, inc = 0, incV = 0, t0 = performance.now();
+  const corNevoa = new THREE.Color();
+  function quadro(agora) {
+    requestAnimationFrame(quadro);
+    if (!ativo) return;
+    const dt = Math.min(0.05, (agora - t0) / 1000); t0 = agora;
+    const intro = MJ.intro ?? 1, p = MJ.heroP || 0, nev = MJ.nevoa || 0;
+    canhao.intensity = 26 * intro; cena.environmentIntensity = 0.22 * intro; contra.intensity = 1.8 * intro; contra2.intensity = 1.2 * intro; ceu.intensity = 0.08 * intro;
+    pocaMat.opacity = 0.3 * intro * (1 - nev); poMat.opacity = 0.3 * intro * (1 - nev);
+    // olha para o cursor com mola
+    const alvo = (MJ.mx || 0) * 0.32, alvoI = (MJ.my || 0) * 0.05;
+    yawV += (alvo - yaw) * 0.05; yawV *= 0.84; yaw += yawV;
+    incV += (alvoI - inc) * 0.05; incV *= 0.84; inc += incV;
+    const e = p * p * (3 - 2 * p);
+    pivo.rotation.y = BASE_YAW + yaw + e * 0.9;
+    pivo.rotation.x = inc;
+    pivo.position.x = 0;
+    const retrato = cam.aspect < 0.85;
+    const z0 = retrato ? 4.3 : 2.9, z1 = retrato ? 3.0 : 2.1;
+    cam.position.set(0, lerp(0.95, 0.85, e), lerp(z0, z1, e));
+    cam.lookAt(0, retrato ? lerp(0.38, 0.55, e) : 0.62, 0);
+    corNevoa.copy(PRETO).lerp(PORC, nev);
+    cena.fog.color.copy(corNevoa);
+    cena.fog.density = 0.02 + nev * nev * 1.1;
+    chao.material.opacity = 0.55 * (1 - nev);
+    const a = poGeo.attributes.position.array;
+    for (let i = 0; i < N; i++) { a[i * 3 + 1] += vel[i] * (dt * 60); if (a[i * 3 + 1] > 3.7) a[i * 3 + 1] = 0.1; }
+    poGeo.attributes.position.needsUpdate = true;
+    renderer.render(cena, cam);
+  }
+  requestAnimationFrame(quadro);
+} catch (e) {
+  console.warn('[cadeira] 3D indisponível', e);
+  html.classList.add('sem-cadeira');
+}
+
+</script>
+
+</body>
+</html>
