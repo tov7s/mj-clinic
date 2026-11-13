@@ -820,7 +820,10 @@ html.js.zap-on .zap{opacity:1;transform:none;pointer-events:auto}
     html.classList.add('intro-rodando');
     if (lenis) lenis.stop();
     const fontes = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
-    Promise.race([fontes, new Promise(r => setTimeout(r, 1500))]).then(() => tenta('abertura-tl', comeca));
+    // espera a cadeira dizer onde fica o ferro (--fx), para o CLINIC sair do logo e cair no lugar certo
+    const heroA = $('.hero'), t0 = performance.now();
+    const ancora = new Promise(r => { (function v() { if (heroA.style.getPropertyValue('--fx') || performance.now() - t0 > 2500) r(); else requestAnimationFrame(v); })(); });
+    Promise.race([Promise.all([fontes, ancora]), new Promise(r => setTimeout(r, 3000))]).then(() => tenta('abertura-tl', comeca));
   });
   function comeca() {
     const leds = $$('.refletor .led-luz'), halo = $('.refletor .halo'), lux = $('[data-lux]');
