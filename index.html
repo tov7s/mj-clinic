@@ -98,19 +98,26 @@ html.js .nav.antes-intro{transform:translateY(-110%)}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;z-index:1;height:100svh;min-height:560px;overflow:hidden;background:var(--hero-bg,var(--preto));isolation:isolate}
-.hero .feixe{position:absolute;left:50%;top:-12%;width:min(110vw,1100px);height:125%;transform:translateX(-50%);pointer-events:none;z-index:0;opacity:var(--feixe,1);
-  background:conic-gradient(from 180deg at 50% 0%,transparent 156deg,rgba(255,243,223,.05) 167deg,rgba(255,243,223,.12) 180deg,rgba(255,243,223,.05) 193deg,transparent 204deg);filter:blur(22px);mix-blend-mode:screen}
-.hero .poca{position:absolute;left:50%;bottom:6%;width:min(80vw,820px);height:18vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,243,223,.08),transparent);z-index:0;opacity:var(--feixe,1);pointer-events:none}
+.hero .feixe{position:absolute;left:50%;top:-3%;width:min(98vw,1060px);height:106%;transform:translateX(-50%);pointer-events:none;z-index:1;opacity:var(--feixe,1);filter:blur(9px);mix-blend-mode:screen}
+.hero .feixe::before,.hero .feixe::after{content:"";position:absolute;inset:0}
+.hero .feixe::before{background:linear-gradient(180deg,rgba(255,244,226,.46),rgba(255,244,226,.22) 48%,rgba(255,244,226,.08));clip-path:polygon(42% 0,58% 0,87% 100%,13% 100%)}
+.hero .feixe::after{background:linear-gradient(180deg,rgba(255,246,232,.24),rgba(255,246,232,.07) 70%,transparent);clip-path:polygon(46.5% 0,53.5% 0,68% 100%,32% 100%)}
+.hero .poca{position:absolute;left:50%;bottom:3%;width:min(74vw,780px);height:17vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,243,223,.24),rgba(255,243,223,.07) 60%,transparent);z-index:1;opacity:var(--feixe,1);pointer-events:none}
 .hero canvas#cena{position:absolute;inset:0;width:100%;height:100%;z-index:2;display:block}
 .cadeira-reserva{position:absolute;left:50%;top:54%;width:min(56vw,460px);transform:translate(-50%,-50%);z-index:2;display:none;border-radius:50%;-webkit-mask:radial-gradient(closest-side,#000 70%,transparent);mask:radial-gradient(closest-side,#000 70%,transparent);opacity:.9}
 html.sem-cadeira .cadeira-reserva{display:block}
 .palavra{position:absolute;margin:0;line-height:.9;white-space:nowrap;pointer-events:none;user-select:none}
 .palavra .w{display:inline-block;will-change:transform;color:var(--porcelana)}
-.palavra-mj{left:max(var(--gut),env(safe-area-inset-left,0px));top:clamp(88px,14svh,140px);z-index:1;font:800 clamp(4.4rem,12.5vw,12rem)/.86 var(--f-display);letter-spacing:-.05em}
-.palavra-mj .w{color:var(--branco)}
+.palavra-mj{right:49vw;top:20svh;z-index:0;font:800 min(27vw,49svh)/.8 var(--f-display);letter-spacing:-.06em;text-align:right}
+.palavra-mj .w{color:var(--branco);opacity:.32}
 .palavra-mj .j{color:var(--logo)}
-.palavra-clinic{right:max(var(--gut),env(safe-area-inset-right,0px));bottom:max(34px,calc(env(safe-area-inset-bottom,0px) + 26px));z-index:3;font:500 clamp(1.9rem,5vw,4.8rem)/1 var(--f-display);letter-spacing:.32em;margin-right:-.32em;text-transform:uppercase}
-.palavra-clinic .w{color:var(--branco)}
+.palavra-clinic{right:calc(max(var(--gut),env(safe-area-inset-right,0px)) + 2vw);bottom:14svh;z-index:0;font:700 min(calc((40vw - var(--gut)) / 3.1),24svh)/.8 var(--f-display);letter-spacing:-.01em;text-transform:uppercase}
+.palavra-clinic .w{color:var(--branco);opacity:.22}
+/* em pé (celular): mesma composição, proporcional à largura */
+@media (orientation:portrait){
+  .palavra-mj{right:30vw;top:calc(104px + env(safe-area-inset-top,0px));font-size:34vw}
+  .palavra-clinic{bottom:24svh;font-size:18vw}
+}
 .hero-ui{position:absolute;z-index:4;right:max(var(--gut),env(safe-area-inset-right,0px));top:clamp(110px,22svh,240px);width:min(380px,40vw);display:grid;gap:18px}
 .hero-ui .lede{font:300 clamp(1.5rem,2.4vw,2.2rem)/1.05 var(--f-display);letter-spacing:-.02em;margin:0;min-height:2.1em}
 .hero-ui .lede b{font-weight:800}
@@ -118,8 +125,6 @@ html.sem-cadeira .cadeira-reserva{display:block}
 .hero-acoes{display:flex;flex-wrap:wrap;gap:10px}
 .hero-rodape{position:absolute;z-index:4;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:max(22px,env(safe-area-inset-bottom,0px));font:500 .7rem/1.4 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--nevoa)}
 @media (max-width:760px){
-  .palavra-mj{font-size:25vw;top:calc(84px + env(safe-area-inset-top,0px))}
-  .palavra-clinic{font-size:7.6vw;bottom:max(28px,calc(env(safe-area-inset-bottom,0px) + 20px))}
   .hero-ui{left:max(var(--gut),env(safe-area-inset-left,0px));right:max(var(--gut),env(safe-area-inset-right,0px));top:auto;bottom:calc(13vw + 44px);width:auto;gap:12px}
   .hero-ui p:not(.lede){display:none}
   .hero-ui .lede{font-size:1.45rem}
@@ -803,6 +808,7 @@ html.js.zap-on .zap{opacity:1;transform:none;pointer-events:auto}
     const leds = $$('.refletor .led-luz'), halo = $('.refletor .halo'), lux = $('[data-lux]');
     const hero = $('.hero');
     const palavras = [$('.palavra-mj .w'), $('.palavra-clinic .w')];
+    const apagado = palavras.map(w => parseFloat(getComputedStyle(w).opacity) || 1); // tom final, vem do CSS
     const vw = innerWidth, vh = innerHeight;
     // as duas palavras começam juntas, como uma assinatura pequena embaixo do refletor
     const rs = palavras.map(w => w.getBoundingClientRect());
@@ -829,7 +835,7 @@ html.js.zap-on .zap{opacity:1;transform:none;pointer-events:auto}
       .to(['.abertura .c3', '.abertura .c4', '.abertura .c1'], { opacity: 0, duration: 0.4 }, 1.8)
       .to(hero, { '--feixe': 1, duration: 0.7, ease: 'power2.out' }, 1.85)
       .to(MJ, { intro: 1, duration: 1.0, ease: 'power2.inOut' }, 1.9)
-      .to(palavras, { x: 0, y: 0, scale: 1, duration: 1.3, ease: 'power3.inOut', stagger: 0.08 }, 1.95)
+      .to(palavras, { x: 0, y: 0, scale: 1, opacity: i => apagado[i], duration: 1.3, ease: 'power3.inOut', stagger: 0.08 }, 1.95)
       .add(() => nav.classList.remove('antes-intro'), 2.8)
       .add(() => { if (ui) gsap.to(ui.children, { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }); if (chars.length) gsap.to(chars, { opacity: 1, duration: 0.01, stagger: 0.022 }); }, 2.85)
       .to('.abertura .c2', { opacity: 0, duration: 0.3 }, 3.3);
@@ -852,11 +858,11 @@ html.js.zap-on .zap{opacity:1;transform:none;pointer-events:auto}
       const s = clamp(p / 0.22);
       if (ui) { ui.style.opacity = String(1 - s); ui.style.transform = `translateY(${-40 * s}px)`; }
       if (rod) rod.style.opacity = String(1 - s);
-      const f = clamp((p - 0.25) / 0.55);
-      mj.style.transform = `translate(${-6 * p}vw, ${-12 * p}vh)`; mj.style.opacity = String(1 - f);
-      cl.style.transform = `translate(${4 * p}vw, ${10 * p}vh)`; cl.style.opacity = String(1 - f);
-      const n = smooth(0.32, 0.95, p);
-      const c = cor(PRETO, PORC, n);
+      const f = clamp((p - 0.04) / 0.36);
+      mj.style.transform = `translateY(${-10 * p}vh) scale(${1 + 0.12 * p})`; mj.style.opacity = String(1 - f);
+      cl.style.transform = `translateY(${8 * p}vh) scale(${1 + 0.08 * p})`; cl.style.opacity = String(1 - f);
+      const n = smooth(0.62, 1, p); // só no fim a cadeira some no escuro
+      const c = [2, 2, 2]; // fundo mais escuro: o feixe de luz ganha contraste
       hero.style.setProperty('--hero-bg', `rgb(${c[0]},${c[1]},${c[2]})`);
       hero.style.setProperty('--feixe', String(MJ.intro * (1 - n)));
       MJ.nevoa = n;
@@ -1269,10 +1275,10 @@ try {
     if (!ativo) return;
     const dt = Math.min(0.05, (agora - t0) / 1000); t0 = agora;
     const intro = MJ.intro ?? 1, p = MJ.heroP || 0, nev = MJ.nevoa || 0;
-    canhao.intensity = 26 * intro; cena.environmentIntensity = 0.22 * intro; contra.intensity = 1.8 * intro; contra2.intensity = 1.2 * intro; ceu.intensity = 0.08 * intro;
+    canhao.intensity = 6 * intro; cena.environmentIntensity = 0.12 * intro; contra.intensity = 1.1 * intro; contra2.intensity = 0.7 * intro; // a luz vem do feixe, a cadeira fica escura ceu.intensity = 0.04 * intro;
     pocaMat.opacity = 0.3 * intro * (1 - nev); poMat.opacity = 0.3 * intro * (1 - nev);
     // olha para o cursor com mola
-    const alvo = (MJ.mx || 0) * 0.32, alvoI = (MJ.my || 0) * 0.05;
+    const alvo = (MJ.mx || 0) * 0.12, alvoI = (MJ.my || 0) * 0.02; // segue o cursor de leve, sem entortar a cadeira
     yawV += (alvo - yaw) * 0.05; yawV *= 0.84; yaw += yawV;
     incV += (alvoI - inc) * 0.05; incV *= 0.84; inc += incV;
     const e = p * p * (3 - 2 * p);
@@ -1283,7 +1289,7 @@ try {
     const z0 = retrato ? 4.3 : 2.9, z1 = retrato ? 3.0 : 2.1;
     cam.position.set(0, lerp(0.95, 0.85, e), lerp(z0, z1, e));
     cam.lookAt(0, retrato ? lerp(0.38, 0.55, e) : 0.62, 0);
-    corNevoa.copy(PRETO).lerp(PORC, nev);
+    corNevoa.copy(PRETO); // a névoa é escura: a cadeira some no preto, sem clarear a tela
     cena.fog.color.copy(corNevoa);
     cena.fog.density = 0.02 + nev * nev * 1.1;
     chao.material.opacity = 0.55 * (1 - nev);
