@@ -1233,7 +1233,7 @@ try {
     } else buf = await r.arrayBuffer();
     return new Promise((res, rej) => new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parse(buf, '', res, rej));
   }
-  carregaModelo('modelos/cadeira.glb').then(gltf => {
+  carregaModelo('modelos/cadeira.glb?v=2').then(gltf => {
     const raiz = gltf.scene;
     raiz.traverse(o => {
       if (!o.isMesh) return;
