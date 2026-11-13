@@ -1259,6 +1259,7 @@ try {
     cam.aspect = largura / altura; cam.updateProjectionMatrix();
   }
   tamanho(); addEventListener('resize', tamanho);
+  if (window.ResizeObserver) new ResizeObserver(tamanho).observe(hero); // corrige o tamanho se a página abrir escondida
   visivel(hero, v => { ativo = v; });
 
   let yaw = 0, yawV = 0, inc = 0, incV = 0, t0 = performance.now();
